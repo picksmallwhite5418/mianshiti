@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width,user-scalable=0,initial-scale=1.0, maximum-scale=1.0" name="viewport">
+		<title>移动端点透</title>
+		<style>
+			.J_a{
+				width: 300px;
+				height: 300px;
+				background: red;
+				color: #fff;
+				font-size: 30px;
+				margin:0 auto;
+				text-align: center;
+			}
+			.J_b{
+				position: absolute;
+				left:0;
+				top:0;
+				width: 400px;
+				height: 400px;
+				background: #000;
+				color: #fff;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="J_a">我是A</div>
+		<div class="J_b">我是B</div>
+	</body>
+	
+	
+</html>
+<script src="zepto/zepto.min.js"></script>
+<script src="zepto/touch.js"></script>
+<script type="text/javascript">
+	//tap事件出现点透问题
+	$(".J_a").on('tap',function(){
+		alert("我是a");
+	})
+	$(".J_b").on('tap',function(){
+		$(".J_b").hide();
+		alert("我是b");
+	})
+</script>

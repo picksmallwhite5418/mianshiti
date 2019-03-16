@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>去掉字符串前后空格</title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script type="text/javascript">
+// methodFirst();
+
+//第一种方法
+function methodFirst() {
+    var str = "   晨哥帅不帅  ";
+    function trim(str) {
+    	//匹配开始位置是否有空格 如果有 则删除 然后递归重新调用trim方法检测
+        if (str.charAt(0) == " ") {
+            str = str.substr(1, str.length - 1);
+            trim();
+        }
+        //匹配结束位置是否有空格 如果有 则删除 然后递归重新调用trim方法检测
+        if(str.lastIndexOf(" ") > 0){
+             str = str.substr(0, str.length - 1);
+           	 trim();
+        }
+    }
+    trim(str);
+}
+
+//第二种方法
+function methodSecond() {
+    var str = "   晨哥帅不帅  ";
+    // ^是开始位置 /s代表匹配空格 *代表从索引0开始匹配多次  ｜代表或 $代表束位置。意思就是从这个字符串开始位置匹配所有的空格或者结束位置匹配所有的空格 替换为空
+    return str.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>$.extend和$.fn.extend区别</title>
+</head>
+<body>
+	<div class="J_div">我是一个测试元素</div>
+</body>
+</html>
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+
+	//$.extend扩展方法
+	$.extend({
+		add:function(){
+			// return str+' jquery';
+			// alert(111);
+			// $(this).remove();
+			$(this).append("<span>我看能不能添加成功</span>");
+		}
+	})
+	console.log($(".div").add());
+
+
+	//$.fn扩展方法
+	// $.fn.delte = function(){
+	// 	$(this).remove();
+	// }
+	// $.fn.extend({
+	// 	delte:function(){
+	// 		$(this).remove();
+	// 	}
+	// })
+	// $(".J_div").delte();
+
+
+
+</script>

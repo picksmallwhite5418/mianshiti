@@ -1,0 +1,627 @@
+<!DOCTYPE html><html><head><title>面试题总结</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#面试题总结">面试题总结</a><ul>
+<li><a href="#es6新语法">ES6新语法</a></li>
+<li><a href="#请说出你对-重排回流和重绘读写分离-的理解">请说出你对 “重排(回流)和重绘读写分离” 的理解！</a></li>
+<li><a href="#谈谈你对面向对象的理解">谈谈你对面向对象的理解！</a></li>
+<li><a href="#谈一下你对作用域链和原型链的理解">谈一下你对作用域链和原型链的理解</a></li>
+<li><a href="#移动端响应式布局flex字体的rem媒体查询media-queries">移动端响应式布局:flex,字体的rem,媒体查询media queries</a></li>
+<li><a href="#对mvc和mvvm的理解">对MVC和MVVM的理解？</a></li>
+<li><a href="#vue-的双向数据绑定原理-腾讯面试题">vue 的双向数据绑定原理 【腾讯面试题】</a></li>
+<li><a href="#你怎么理解代码耦合度模块化怎么实现模块化">你怎么理解代码耦合度？模块化？怎么实现模块化？</a></li>
+<li><a href="#你用nodejs写过什么">你用nodejs写过什么？</a></li>
+<li><a href="#cookie的四个属性domain-path-expires和secure各是什么意义">Cookie的四个属性：domain, path, expires和secure各是什么意义？</a></li>
+<li><a href="#简述ajax的原理">简述ajax的原理？</a></li>
+<li><a href="#jsonp是什么">jsonp是什么？</a></li>
+<li><a href="#jsonp原理">jsonp原理</a></li>
+<li><a href="#什么是柯理化函数惰性函数">什么是柯理化函数、惰性函数？</a></li>
+<li><a href="#你怎么使用webpack的它做了些什么">你怎么使用webpack的，它做了些什么?</a></li>
+<li><a href="#websocket和http协议之间的区别">websocket和http协议之间的区别?</a></li>
+<li><a href="#进程和线程的区别">进程和线程的区别</a></li>
+<li><a href="#ajaxfetchpromise区别">ajax,fetch,promise区别？</a></li>
+<li><a href="#amd-cmdcommonjs规范的区别">AMD CMD，commonJS规范的区别？</a></li>
+<li><a href="#是否了解或者使用过开源的架构工具bowernpmyeomangulpwebpack等一个npm包里packagejson具备的必要的字段都有哪些">是否了解或者使用过开源的架构工具bower，npm，yeoman，gulp，webpack等，一个npm包里package.json具备的必要的字段都有哪些？</a></li>
+<li><a href="#常用版本管理工具说一下git-和-svn的区别">常用版本管理工具？说一下git 和 svn的区别？</a></li>
+<li><a href="#常用css预处理工具是什么-less-sass">常用css预处理工具是什么？ less ,sass</a></li>
+<li><a href="#get-和-post的区别">GET 和 POST的区别?</a></li>
+<li><a href="#express常用中间件和路由api">Express常用中间件和路由API</a></li>
+<li><a href="#什么是restful风格接口">什么是Restful风格接口？</a></li>
+<li><a href="#callapplybind-的区别-网易面试题">call、apply、bind 的区别 【网易面试题】</a></li>
+<li><a href="#实现跨域的方式有哪些京东面试题">实现跨域的方式有哪些?【京东面试题】</a></li>
+<li><a href="#说一说-sessionstoragelocalstorage-和-cookie-的区别-京东面试题">说一说 sessionStorage、localStorage 和 cookie 的区别 【京东面试题】</a></li>
+<li><a href="#说说对前端有哪些优化-好未来面试题">说说对前端有哪些优化 【好未来面试题】</a></li>
+<li><a href="#vue-声明周期钩子函数都有哪些爱奇艺面试题">vue 声明周期钩子函数都有哪些?【爱奇艺面试题】</a></li>
+<li><a href="#处理兼容问题有两种方式">处理兼容问题有两种方式:</a></li>
+<li><a href="#如何支持-html5-新标签网易面试题">如何支持 HTML5 新标签?【网易面试题】</a></li>
+<li><a href="#常用的浏览器的内核分别是什么京东面试题">常用的浏览器的内核分别是什么?【京东面试题】</a></li>
+<li><a href="#浮动塌陷问题如何解决百度面试题">浮动塌陷问题如何解决?【百度面试题】</a></li>
+<li><a href="#map">map</a></li>
+<li><a href="#bind">bind</a></li>
+<li><a href="#xhrreadystate-请求状态状态码">xhr.readyState 请求状态状态码</a></li>
+<li><a href="#clientheight-toppadding-bottompadding-height-水平滚动条高度">clientHeight = topPadding + bottomPadding+ height - 水平滚动条高度。</a></li>
+<li><a href="#offsetheight-padding-height-border-clientheight-滚动条-边框">offsetHeight = padding + height + border = clientHeight + 滚动条 + 边框。</a></li>
+<li><a href="#scrollheight-toppadding-bottompadding-内容margin-box的高度">scrollHeight &gt;= topPadding + bottomPadding + 内容margin box的高度。</a></li>
+<li><a href="#正常redux数据流">正常redux数据流</a></li>
+<li><a href="#dva中的redux数据流">dva中的redux数据流</a></li>
+<li><a href="#移动端滚动加载更多">移动端滚动加载更多</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="面试题总结">面试题总结</h2>
+
+
+
+<h3 id="es6新语法">ES6新语法</h3>
+
+<p>1.let 定义变量,不存在变量提升;const 定义常量,不可更改; 2.新增块级作用域  <br>
+3.箭头函数,箭头函数中没有 this,其中的 this 指向外层作用域中的 this;箭头函数没有arguments，可以通过…arg获取实参集合 4.解构赋值  <br>
+5.class 定义类,extend 继承 6.新增模块导入导出,import 和 export; 7.扩展运算符(…)</p>
+
+<ul><li><p>let / const <br>
+和ES5中的VAR的区别 </p>
+
+<ol>
+<li rel="1"><p>let不存在变量提升机制（变量不允许在声明之前使用） </p></li>
+<li rel="2"><p>let不允许重复声明 </p></li>
+<li rel="3"><p>在全局作用域中基于let声明的变量不是window的一个属性，和他没关系 </p></li>
+<li rel="4"><p>typeof 未被声明的变量 =&gt;不是undefined而是报错（暂时性死区） </p></li>
+<li rel="5"><p>let会形成块级作用域（类似于私有作用域，大部分大括号都会形成块作用域） </p></li></ol></li>
+<li><p>解构赋值 <br>
+“…” 拓展、剩余、展开运算符</p></li>
+<li><p>ES6中的模板字符串</p></li>
+<li><p>箭头函数 <br>
+和普通函数的区别 </p>
+
+<ol>
+<li rel="1"><p>没有arguments，但是可以基于…arg获取实参集合（结果是一个数组） </p></li>
+<li rel="2"><p>没有自己的this，箭头函数中的this是上下文中的this</p></li></ol></li>
+<li><p>Promise（async/await）</p></li>
+<li><p>class（ES6中创建类的）</p></li>
+<li><p>interator（for of 循环）</p></li>
+<li><p>Map / Set</p></li>
+</ul>
+
+
+
+<h3 id="请说出你对-重排回流和重绘读写分离-的理解">请说出你对 “重排(回流)和重绘读写分离” 的理解！</h3>
+
+<blockquote>
+  <p>浏览器下载完页面中的所有组件——HTML 标记、JavaScript、CSS、图片之后会解析生成两个内部数据结构; 分别是 DOM 树和渲染树;  <br>
+  DOM 树表示页面结构,渲染树表示 DOM 节点如何显示。DOM 树中的每一个需要显示的节点在渲染树中至少存 在一个对应的节点(隐藏的 DOM 元素 disply 值为 none 在渲染树中没有对应的节点)。 渲染树中的节点被称为“帧”或“盒”,符合 CSS 模型的定义,理解页面元素为一个具有填充,边距, 边框和位置的盒子。一旦 DOM 和渲染树构建完成,浏览器就开始显示(绘制)页面元素。  <br>
+  当 DOM 的变化影响了元素的几何属性(宽或高),浏览器需要重新计算元素的几何属性,同样其他元素的几何属性和位置  <br>
+  也会因此受到影响。浏览器会使渲染树中受到影响的部分失效,并重新构造渲染树。这个过程称为重排。完成重排后, 会重新绘制受影响的部分到屏幕,该过程称为重绘。</p>
+</blockquote>
+
+<p>思路： </p>
+
+<ol><li rel="1"><p>首先说出什么是重排和重绘 </p></li>
+<li rel="2"><p>突出他们耗性能 </p></li>
+<li rel="3"><p>突出自己写项目的时候重点注意了这些事情，以及自己的解决方案（说一下解决原理）</p>
+
+<blockquote>
+  <p>浏览器渲染一个页面的时候是按照“先创建DOM树-&gt;在加载CSS-&gt;生成渲染树 RENDER TREE-&gt;把渲染树交给浏览器（GPU）进行绘制”，如果后期我们修改了元素的样式（但是没有改变大小和位置），浏览器会把当前元素重新生成渲染树，然后重新渲染，这个机制是重绘，但是一旦元素的位置或者大小等发生改变，浏览器就要从DOM树重新计算渲染，这个机制是回流(重排)，不论是重排还是重绘都非常的消耗性能</p>
+  
+  <ul>
+  <li><p>在我的以前项目中，我特意的重视了这个问题，尽量减少操作DOM引发的回流和重绘问题，常用的解决方案：</p></li>
+  <li><p>需要动态向页面追加元素的时候，基于文档碎片或者先把需要增加的所有元素拼接成字符串，最后统一进行增加</p></li>
+  <li><p>读写分离：把统一修改样式都放到一起执行，新版浏览器都有一个自己检测的机制，如果发现下面紧挨着的操作也是修改元素的样式，会把所有修改的事先存起来，直到遇到非修改样式的操作，会把之前存储的统一执行，引发一次回流和重绘</p></li></ul>
+</blockquote></li>
+</ol>
+
+
+
+<h3 id="谈谈你对面向对象的理解">谈谈你对面向对象的理解！</h3>
+
+<blockquote>
+  <p>面向对象即拥有类的概念,抽象实例对象的公共属性与方法,基于类可以创建任意多个实例对象, 一般具有封装、继承、多态的特性!  <br>
+  但 JS 中对象与纯面向对象语言中的对象是不同的,ECMA 标准定义 JS 中对象:无序属性的集合,其属性可以包含基本值、 对象或者函数。可以简单理解为 JS 的对象是一组无序的值,其中的属性或方法都有一个名字,根据这个名字可以访问相 映射的值(值可以是基本值/对象/方法)。</p>
+</blockquote>
+
+<ul><li><p>[JS本身就是面向对象编程的] </p></li>
+<li><p>JS本身就是基于面向对象(OOP)编程思想开发出来的语言，我们学习JS就是在学习JS中的类和实例，例如： </p>
+
+<ul>
+<li><ul>
+<li><p>数组是Array的实例、对象是Object的实例、函数是Function的实例…，</p></li></ul></li>
+<li><ul>
+<li><p>在这些内置类的原型上有很多公共的属性和方法，这些方法可以被实例调用，我们学习JS就是学习这些方法…</p></li></ul></li></ul></li>
+<li><p>[面向对象真实项目的应用]  <br>
+平时的业务逻辑开发，我没有刻意使用类的方式来做，只有在一些组件或者插件封装的时候才会基于构造函数和原型链使用类和实例完成，例如：我之前封装过一些 TAB页卡、轮播图、模态框、表单验证等插件，就是这样处理的（我之前看了一些类库和插件的源码，也都是基于面向对象封装的）</p></li>
+<li><p>[面向对象中的一些语法和特点]  <br>
+所谓面向对象就是基于class或者function创建一个类，执行的时候new执行创建一个实例，这样实例就可以调取类上提供的方法，想要基于面向对象进行插件封装，必须掌握关于类的继承、封装和多态，封装就是提取公共的方法、JS中没有严格意义的多态，不能进行方法的重写，常用的继承方式有很多，例如：原型继承、call继承、寄生组合继承、es6中的继承等，有些方式会存在一些问题，我项目中后来都是基于class中的extend实现继承的</p></li>
+</ul>
+
+
+
+<h3 id="谈一下你对作用域链和原型链的理解">谈一下你对作用域链和原型链的理解</h3>
+
+<ul><li><p>作用域链 </p>
+
+<blockquote>
+  <p>函数执行会形成一个私有的作用域，形参和在当前私有作用域中声明的变量都是私有变量，当前的私有作用域有自我保护机制，私有变量和外界是没有关系的，但是如果私有作用域中遇到一个非私有的变量，则向它的上级作用域找，如果还不是上级作用域私有的，则继续向上查找，一直找到window为止。这种变量一层层向上查找的机制就是“作用域链机制”</p>
+</blockquote></li>
+<li><p>原型链 </p>
+
+<blockquote>
+  <p>它也是一种查找机制，实例首先在自己的私有属性中进行属性的查找，如果不是私有属性，基于<strong>proto</strong> 向所属类的原型上进行查找，如果在找不到，则继续基于<strong>proto</strong> 向上查找，一直找到Object.prototype为止，例如：obj.hasOwnProperty() 这里调取的hasOwnProperty这个属性就是找到Object.prototype才找到的</p>
+</blockquote></li>
+</ul>
+
+
+
+<h3 id="移动端响应式布局flex字体的rem媒体查询media-queries">移动端响应式布局:flex,字体的rem,媒体查询media queries</h3>
+
+<ul><li><p>flex:伸缩盒模型 解决布局的问题 </p></li>
+<li><p>rem:是一个相对长度单位 参照基准为body的font-size 解决px大小变化的问题  <br>
+相对于父级字体大小，前提父级不能设置字体大小em: </p></li>
+<li><p>media queries:媒体查询 .媒体查询Media Queries能在不同的条件下使用不同的样式，使页面在不同在终端设备下达到不同的渲染效果；</p></li>
+</ul>
+
+
+
+<h3 id="对mvc和mvvm的理解">对MVC和MVVM的理解？</h3>
+
+<ul><li><p>Model（模型）、View（视图）和Controller（控制）。 </p></li>
+<li><p>MVC 是单向数据流 当模型数据发生改变时，通过控制器让视图发生改变 而MVVM是双向数据流 ，数据变化，视图变化，视图变化数据也会改变</p></li>
+</ul>
+
+
+
+<h3 id="vue-的双向数据绑定原理-腾讯面试题">vue 的双向数据绑定原理 【腾讯面试题】</h3>
+
+<p>vue 是通过数据劫持的方式来做数据绑定的,其中最核心的方法便是通过 Object.defineProperty()来实现对属性的劫持, 达到监听数据变动的目的, <br>
+无疑这个方法是本文中最重要、最基础的内容之一 <br>
+实现 mvvm 的双向绑定,就必须要实现以下几点:</p>
+
+<ol><li rel="1"><p>数据监听器 Observer,能够对数据对象的所有属性进行监听,如有变动可拿到最新值并通知订阅者</p></li>
+<li rel="2"><p>指令解析器 Compile,对每个元素节点的指令进行扫描和解析,根据指令模板替换数据,以及绑定相应的更新函数 </p></li>
+<li rel="3"><p>Watcher,作为连接 Observer 和 Compile 的桥梁,能够订阅并收到每个属性变动的通知,执行指令绑定的相应回调函数, <br>
+从而更新视图</p></li>
+</ol>
+
+
+
+<h3 id="你怎么理解代码耦合度模块化怎么实现模块化">你怎么理解代码耦合度？模块化？怎么实现模块化？</h3>
+
+<ul><li><p>高内聚是指一个软件模块是由相关性很强的代码组成，只负责一项任务，也就是常说的单一责任原则。 </p></li>
+<li><p>低耦合，粗浅的理解是：一个完整的系统，模块与模块之间，尽可能的使其独立存在。也就是说，让每个模块，尽可能的独立完成某个特定的子功能。模块与模块之间的接口，尽量的少而简单。如果某两个模块间的关系比较复杂的话，最好首先考虑进一步的模块划分。这样有利于修改和组合。 </p></li>
+<li><p>模块就是实现特定功能的一组方法。  <br>
+只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。 <a href="https://www.cnblogs.com/doublenet/p/4918306.html" target="_blank">https://www.cnblogs.com/doublenet/p/4918306.html</a></p></li>
+</ul>
+
+
+
+<h3 id="你用nodejs写过什么">你用nodejs写过什么？</h3>
+
+<p>用node和express框架构建web服务，自己实现前端所需接口的逻辑</p>
+
+
+
+<h3 id="cookie的四个属性domain-path-expires和secure各是什么意义">Cookie的四个属性：domain, path, expires和secure各是什么意义？</h3>
+
+<ul><li><p>domain <br>
+指定 cookie 可以送达的主机名。假如没有指定，那么默认值为当前文档访问地址中的主机部分（但是不包含子域名）。 </p></li>
+<li><p>Path  <br>
+指定一个 URL 路径，这个路径必须出现在要请求的资源的路径中才可以发送 Cookie 首部。 </p></li>
+<li><p>Expires  <br>
+cookie 的最长有效时间，形式为符合 HTTP-date 规范的时间戳。 </p></li>
+<li><p>Secure  <br>
+一个带有安全属性的 cookie 只有在请求使用SSL和HTTPS协议的时候才会被发送到服务器。</p></li>
+</ul>
+
+
+
+<h3 id="简述ajax的原理">简述ajax的原理？</h3>
+
+<p>ajax在不刷新页面的情况下局部更新数据，通过new执行XMLHttpRequest类的来实现服务端与浏览器的数据交互，拿到数据后，动态将数据绑定的页面，最终浏览器渲染出来</p>
+
+
+
+<h3 id="jsonp是什么">jsonp是什么？</h3>
+
+<ul><li><p>跨域通信的手段</p></li>
+<li><p>首先是利用script标签的src属性来实现跨域。</p></li>
+<li><p>通过将前端方法作为参数传递到服务器端，然后由服务器端注入参数之后再返回，实现服务器端向客户端通信。 <br>
+由于使用script标签的src属性，因此只支持get方法</p></li>
+</ul>
+
+
+
+<h3 id="jsonp原理">jsonp原理</h3>
+
+<p>首先在客户端注册一个callback，然后把callback的名字传给服务器。此时，服务器先生成json数据，然后以javascript语法的方式，生成function，function名字就是传递上来带参数jsonp。最后将json数据直接以入参的方式，放置function中，这样就生成js语法的文档，返回给客户端。客户端浏览器，解析script变迁，并执行返回javascript文档，此时数据作为参数，传入了客户端预先定义好的callback函数里。简单的说，就是利用script标签没有跨域限制的“漏洞”来达到与第三方通讯的目的</p>
+
+
+
+<h3 id="什么是柯理化函数惰性函数">什么是柯理化函数、惰性函数？</h3>
+
+<ul><li><p>柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。</p></li>
+<li><p>惰性函数 用来解决每次判断的问题</p></li>
+</ul>
+
+
+
+<h3 id="你怎么使用webpack的它做了些什么">你怎么使用webpack的，它做了些什么?</h3>
+
+<p>webpack是一款强大的模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理, 再说下webpack配置，各种加载器的功能和使用的插件</p>
+
+
+
+<h3 id="websocket和http协议之间的区别">websocket和http协议之间的区别?</h3>
+
+<p>WebSocket他是为了解决客户端发起多个http请求到服务器资源浏览器必须要经过长时间的轮训问题而生的，他实现了多路复用，他是全双工通信。在webSocket协议下客服端和浏览器可以同时发送信息。建立了WenSocket之后服务器不必在浏览器发送request请求之后才能发送信息到浏览器。这时的服务器已有主动权想什么时候发就可以发送信息到服务器。而且信息当中不必在带有head的部分信息了与http的长链接通信来说，这种方式，不仅能降低服务器的压力。而且信息当中也减少了部分多余的信息。</p>
+
+
+
+<h3 id="进程和线程的区别">进程和线程的区别</h3>
+
+<ul><li><p>线程是CPU独立运行和独立调度的基本单位；</p></li>
+<li><p>进程是资源分配的基本单位；</p></li>
+</ul>
+
+<blockquote>
+  <p>两者的联系：进程和线程都是操作系统所运行的程序运行的基本单元。</p>
+  
+  <p>区别： <br>
+      1. 进程具有独立的空间地址，一个进程崩溃后，在保护模式下不会对其它进程产生影响。 <br>
+      2. 线程只是一个进程的不同执行路径，线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉。</p>
+</blockquote>
+
+
+
+<h3 id="ajaxfetchpromise区别">ajax,fetch,promise区别？</h3>
+
+<ul><li><p>ajax： 基于原生的XHR开发，有兼容性问题，功能需要自己封装处理 </p></li>
+<li><p>fetch： 是基于promise,提供了原生Api, 脱离了XHR,，但需要手动对状态码进行成功返回的判断 </p></li>
+<li><p>axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端 ,并进行了相应的封装，例如如下：  <br>
+从浏览器中创建 XMLHttpRequest  <br>
+从 node.js 发出 http 请求  <br>
+支持 Promise API  <br>
+拦截请求和响应  <br>
+转换请求和响应数据  <br>
+取消请求  <br>
+自动转换JSON数据  <br>
+客户端支持防止CSRF/XSRF  <br>
+promise ： 是异步编程的一种解决方案，可以解决异步处理回调地狱问题。promise终于成了原生对象，它有三种状态，分别是  <br>
+pending-进行中、resolved-已完成、rejected-已失败  <br>
+then 是Promise类原型上的方法，由实例来调用，then第一个参数表示成功状态回调函数，第二个参数表示失败状态的回调函数  <br>
+》Promise中return  <br>
+return后面不管是值类型还是引用类型，都会走到第二个then的成功回调里面  <br>
+return后面是Promise实例，则有promise里面的回调函数决定，如果里面是成功的则走到第二个then里面的成功回调，若里面是失败的则走到第二个then里面的失败回调里面  <br>
+then第二个参数（失败回调）可以不用写，直接通过catch方法来捕获异常，catch是promise类原型上的方法  <br>
+promise里处理异步并发问题 Promise.all 多个异步操作都成功后再做其他的事情  <br>
+Promise.race([p1,p2]) 多个异步操作时，捕获到成功状态就成功的，捕获到失败就是失败</p></li>
+</ul>
+
+
+
+<h3 id="amd-cmdcommonjs规范的区别">AMD CMD，commonJS规范的区别？</h3>
+
+<ol><li rel="1"><p>目前，模块化开发有：</p>
+
+<ul>
+<li><ul>
+<li><p>服务器端规范：CommonJs—nodejs使用的规范，</p></li></ul></li>
+<li><ul>
+<li><p>浏览器端规范：AMD—RequireJS国外相对流行 <br>
+                       CMD–SeaJS国内相对流行</p></li></ul></li></ul></li>
+<li rel="2"><p>SeaJS与RequireJS的对比：</p>
+
+<ul>
+<li><ul>
+<li><p>对于依赖的模块，AMD是提前执行，CMD是延后执行;</p></li></ul></li>
+<li><ul>
+<li><p>CMD推崇依赖就近，AMD推崇依赖前置;</p></li></ul></li>
+<li><ul>
+<li><p>AMD的API默认是一个当多个用，CMD的API严格区分，推崇职责单一。</p></li></ul></li></ul></li>
+</ol>
+
+
+
+<h3 id="是否了解或者使用过开源的架构工具bowernpmyeomangulpwebpack等一个npm包里packagejson具备的必要的字段都有哪些">是否了解或者使用过开源的架构工具bower，npm，yeoman，gulp，webpack等，一个npm包里package.json具备的必要的字段都有哪些？</h3>
+
+<p>一个npm包里package.json具备的必要的字段都有哪些:</p>
+
+<ul><li><p>name: package的名字</p></li>
+<li><p>version: package的版本 <br>
+当package发生变化时，version也应该跟着一起变化，</p></li>
+<li><p>dependencies: package的生产依赖模块</p></li>
+<li><p>devDependencies：package的开发依赖模块 <br>
+即别人要在这个package上进行开发，至少需要安装哪些包</p></li>
+</ul>
+
+
+
+<h3 id="常用版本管理工具说一下git-和-svn的区别">常用版本管理工具？说一下git 和 svn的区别？</h3>
+
+<ol><li rel="1"><p>git是分布式的，svn是集中式的 </p></li>
+<li rel="2"><p>git 不需联网，svn 需要联网操作,git下载下来后，在本地不必联网就可以看到所有的log，很方便学习;svn却需要联网，没有网络代码没办法提交.</p></li>
+</ol>
+
+
+
+<h3 id="常用css预处理工具是什么-less-sass">常用css预处理工具是什么？ less ,sass</h3>
+
+
+
+<h3 id="get-和-post的区别">GET 和 POST的区别?</h3>
+
+<ul><li><ol>
+<li rel="1"><p>发送数据的方式不一样</p></li></ol></li>
+<li><p>get的方式是将数据放在url地址后面发送给服务器</p></li>
+<li><p>post的方式是将数据方法请求主体里面发送给服务器</p></li>
+<li><ol>
+<li rel="2"><p>传输数据的大小不一样</p></li></ol></li>
+<li><p>get 各个浏览器的传输大小不一样，例如：chrome（8kb）,firefox(7kb), IE(2kb)</p></li>
+<li><p>post 没有大小的限制</p></li>
+<li><ol>
+<li rel="3"><p>安全性能来说</p></li></ol></li>
+<li><p>get的安全性没有post的安全</p></li>
+<li><ol>
+<li rel="4"><p>get有缓存，post没缓存</p></li></ol></li>
+</ul>
+
+
+
+<h3 id="express常用中间件和路由api">Express常用中间件和路由API</h3>
+
+<p>应用级中间件 <br>
+路由级中间件 <br>
+错误处理中间件 <br>
+内置中间件 <br>
+第三方中间件 <br>
+express提供res和req api常用的得知道</p>
+
+
+
+<h3 id="什么是restful风格接口">什么是Restful风格接口？</h3>
+
+<p>RESTful是一种架构的规范与约束、原则，符合这种规范的架构就是RESTful架构。</p>
+
+<ol><li rel="1"><p>通过URL来表示资源 <br>
+资源分为主资源与子资源 <br>
+因为主资源是一类独立的资源 所以主资源应直接放在相对路径下：例如 <br>
+若要表示主资源的实例：如果实例的ID=1，则这样表示： /goods/1 <br>
+子资源： <br>
+一个实例的子资源可能是一个集合也可能是一个单一的子资源 <br>
+子资源为图片集合：/goods/1/pictures <br>
+子资源为商品折扣的单子子资源：/goods/1/discount</p></li>
+<li rel="2"><p>单数 vs. 复数 <br>
+获取用户1的信息，哪种方式更符合RESTful? <br>
+/api/users/1 <br>
+/api/user/1</p></li>
+<li rel="3"><p>相对路径 vs. 请求参数 <br>
+极光的RESTful API: <br>
+获取用户信息 GET /v1/users/{username} 参数放在路径中 <br>
+VS <br>
+获取用户信息 GET /v1/users?username=xxxxx 拼接的方式 <br>
+获取应用管理员列表 GET /v1/admins?start={start}&amp;count={count} ？后拼接参数的方式：这种方式一般作为过滤资源</p></li>
+<li rel="4"><p>使用合适的动词 get delete put post <br>
+选择请求接口的方式： get delete <br>
+PUT 在服务器更新资源（客户端提供改变后的完整资源）。 <br>
+POST 在服务器新建一个资源</p></li>
+</ol>
+
+
+
+<h3 id="callapplybind-的区别-网易面试题">call、apply、bind 的区别 【网易面试题】</h3>
+
+<ol><li rel="1"><p>apply:最多只能有两个参数——新 this 对象和一个数组 argArray。如果给该方法传递多个参数, 则把参数都写进这个数组里面,当然,即使只有一个参数,也要写进数组里。 <br>
+如果 argArray 不是一个有效的数组或 arguments 对象,那么将导致一个 TypeError。 <br>
+如果没有提供 argArray 和 thisObj 任何一个参数,那么 window 对象将被用作 thisObj,并且无法被传递任何参数。</p></li>
+<li rel="2"><p>call:它可以接受多个参数,第一个参数与 apply 一样,后面则是一串参数列表。 <br>
+这个方法主要用在 js 对象各方法相互调用的时候,使当前 this 实例指针保持一致, 或者在特殊情况下需要改变 this 指针。如果没有提供 thisObj 参数,那么 window 对象被用作 thisObj。</p></li>
+<li rel="3"><p>bind:预处理改变 this,但是调用 bind 的方法并没有执行;传递参数规则和 call 一致;</p></li>
+</ol>
+
+
+
+<h3 id="实现跨域的方式有哪些京东面试题">实现跨域的方式有哪些?【京东面试题】</h3>
+
+<p>1.图片 ping 或 script 标签跨域 2.JSONP 跨域 3.CORS 4.window.name+iframe 5.window.postMessage() 6.修改 document.domain 跨子域 7.WebSocket 8.代理</p>
+
+
+
+<h3 id="说一说-sessionstoragelocalstorage-和-cookie-的区别-京东面试题">说一说 sessionStorage、localStorage 和 cookie 的区别 【京东面试题】</h3>
+
+<ol><li rel="1"><p>作用域不同,sessionStorage 不在不同的浏览器窗口中共享,即使是同一个页面;localstorage 在所有同源窗口 </p></li>
+<li rel="2"><p>数据有效期不同,sessionStorage:仅在当前浏览器窗口关闭之前有效;localStorage:始终有效,窗口或浏览器关闭也  <br>
+一直保存,因此用作持久数据;cookie:只在设置的 cookie 过期时间之前有效,即使窗口关闭或浏览器关闭 中都是共享的;cookie 也是在所有同源窗口中都是共享的 </p></li>
+<li rel="3"><p>存储大小限制也不同,cookie 数据不能超过 4K,同时因为每次 http 请求都会携带 cookie、  <br>
+所以 cookie 只适合保存很小的数据,如会话标识。sessionStorage 和 localStorage 虽然也有存储大小的限制,但比 cookie  <br>
+大得多,可以达到 5M 或更大 </p></li>
+<li rel="4"><p>cookie 数据始终在同源的 http 请求中携带(即使不需要),即 cookie 在浏览器和服务器间来回传递,而 sessionStorage  <br>
+和 localStorage 不会自动把数据发送给服务器,仅在本地保存。  <br>
+cookie 数据还有路径(path)的概念,可以限制 cookie 只属于某个路径下 5.web Storage 支持事件通知机制,可以将数据更新的通知发送给监听者</p></li>
+</ol>
+
+
+
+<h3 id="说说对前端有哪些优化-好未来面试题">说说对前端有哪些优化 【好未来面试题】</h3>
+
+<p>1.减少 HTTP 请求数 2.合理设置 HTTP 缓存 3.资源合并与压缩  <br>
+4.CSS Sprites 5.“惰性”加载  <br>
+6.异步请求 7.避免重复的资源请求 8.减少不必要的 HTTP 跳转</p>
+
+
+
+<h3 id="vue-声明周期钩子函数都有哪些爱奇艺面试题">vue 声明周期钩子函数都有哪些?【爱奇艺面试题】</h3>
+
+<ol><li rel="1"><p>beforeCreate created </p></li>
+<li rel="2"><p>beforeMount mounted </p></li>
+<li rel="3"><p>beforeUpdate updated </p></li>
+<li rel="4"><p>beforeDestroy destroyed</p></li>
+</ol>
+
+
+
+<h3 id="处理兼容问题有两种方式">处理兼容问题有两种方式:</h3>
+
+<ol><li rel="1"><p>IE6/IE7/IE8 支持通过 document 方法产生的标签,利用这一特性让这些浏览器支持 HTML5 新标签。 </p></li>
+<li rel="2"><p>使用是 html5shim 框架;  <br>
+另外,DOCTYPE 声明的方式是区分 HTML 和 HTML5 标志的一个重要因素,此外,还可以根据新增的结构,功能元素来加以区分;</p></li>
+</ol>
+
+
+
+<h3 id="如何支持-html5-新标签网易面试题">如何支持 HTML5 新标签?【网易面试题】</h3>
+
+<p>1)IE8/IE7/IE6 支持通过 document.createElement 方法产生的标签,可以利用这一特性让这些浏览器支持 HTML5 新标签, 浏览器支持新标签后,还需要添加标签默认的样式;  <br>
+2)当然最好的方式是直接使用成熟的框架、使用最多的是 html5shim 框架 </p>
+
+
+
+<h3 id="常用的浏览器的内核分别是什么京东面试题">常用的浏览器的内核分别是什么?【京东面试题】</h3>
+
+<blockquote>
+  <p>五大主流浏览器 <br>
+      - IE浏览器：trident内核 <br>
+      - Opera浏览器：presto内核 <br>
+      - Safari浏览器：webkit内核 <br>
+      - Firefox浏览器：Geoko内核 <br>
+      - Google浏览器：最初是webkit内核，现在是blink内核</p>
+</blockquote>
+
+<ul><li><p>Trident 内核:IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称 MSHTML] - - - Gecko 内核:Netscape6 及以上版本,FF,MozillaSuite/SeaMonkey 等</p></li>
+<li><p>Presto 内核:Opera7 及以上 [Opera 内核原为:Presto,现为:Blink] </p></li>
+<li><p>Webkit内核:Safari,Chrome等 [Chrome的:Blink(WebKit的分支)]</p></li>
+</ul>
+
+<h3 id="浮动塌陷问题如何解决百度面试题">浮动塌陷问题如何解决?【百度面试题】</h3>
+
+<p>1、clear 清除浮动(添加空 div 法) <br>
+在浮动元素下方添加空 div,并给该元素写 css 样式: {clear:both;height:0;overflow:hidden;} <br>
+2、方法:给浮动元素父级设置高度 <br>
+我们知道了高度塌陷是应为给浮动元素的父级高度是自适应导致的,那么我们给它的设置适当的高度就可以解决这个问题了。 缺点:在浮动元素高度不确定的时候不适用 <br>
+3、方法:以浮制浮(父级同时浮动)何谓“以浮制浮”呢?就是<strong>让浮动元素的父级也浮动</strong>。缺点: 添加浮动,浮动多了容易出现问题。 <br>
+4、方法:父级设置成 inline-block 缺点:父级的 margin 左右 auto 失效,无法使用 margin: 0 auto;居中了 <br>
+5、 br 清浮动</p>
+
+<div class="box">
+<div class="top"></div>
+
+<p><br clear="both"> </p></div> <br>
+br 标签自带 clear 属性,将它设置成 both 其实和添加空 div 原理是一样的。 问题:不符合工作中:结构、样式、行为,三 者分离的要求。
+
+
+
+<h3 id="map">map</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs haxe"><div class="hljs-line"> <span class="hljs-keyword">Array</span>.prototype.myMap = <span class="hljs-function"><span class="hljs-keyword">function</span> </span>(<span class="hljs-keyword">callback</span>, context) {
+</div><div class="hljs-line">        <span class="hljs-comment">//先处理第二个参数，判断是否有参数</span>
+</div><div class="hljs-line">        context = context || window;
+</div><div class="hljs-line">        <span class="hljs-comment">//this指的是数组 callback执行的次数是数组的长度</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> <span class="hljs-keyword">new</span><span class="hljs-type">Ary</span> = [];
+</div><div class="hljs-line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">this</span>.length; i++) {
+</div><div class="hljs-line">            <span class="hljs-keyword">var</span> res = <span class="hljs-keyword">callback</span>.call(context, <span class="hljs-built_in">this</span>[i], i, <span class="hljs-built_in">this</span>);
+</div><div class="hljs-line">            <span class="hljs-keyword">new</span><span class="hljs-type">Ary</span>.push(res);
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span><span class="hljs-type">Ary</span>;
+</div><div class="hljs-line">    };
+</div></code></pre>
+
+
+
+<h3 id="bind">bind</h3>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment">//柯理化函数的思想（预处理的思想机制）</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//改变方法里的this关键字。返回一个函数的定义</span>
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params">a, b, c</span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> a + b + c
+</div><div class="hljs-line">    }
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> res = fn.bind({}, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>);<span class="hljs-comment">//返回值是一个小函数</span>
+</div><div class="hljs-line">    res(<span class="hljs-number">30</span>);<span class="hljs-comment">//返回的小函数运行时才会让方法fn运行</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//bind方法运行时：1.bind的第一个参数保存下来 2.把从第二个参数开始的实参保存下来 3.返回值是一个函数的定义</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//bind返回值运行：1.改变fn的this关键字 2.把所有的参数传给fn 3.让fn执行</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    <span class="hljs-built_in">Function</span>.prototype.myBind = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">context</span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> context = context || <span class="hljs-built_in">window</span>;
+</div><div class="hljs-line">        <span class="hljs-comment">//获得第一个参数以外的参数</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> arg1 = [].slice.call(<span class="hljs-built_in">arguments</span>, <span class="hljs-number">1</span>);
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-comment">//获得返回函数执行时被传入的参数</span>
+</div><div class="hljs-line">            <span class="hljs-keyword">var</span> arg2 = [].slice.call(<span class="hljs-built_in">arguments</span>);
+</div><div class="hljs-line">            <span class="hljs-keyword">var</span> arg = [].concat(arg1, arg2);<span class="hljs-comment">//参数合并后的数组</span>
+</div><div class="hljs-line">            <span class="hljs-keyword">return</span> that.apply(context, arg)
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params">a, b, c</span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> a + b + c
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> res2 = fn.myBind({}, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>);
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(res2(<span class="hljs-number">30</span>));
+</div></code></pre>
+
+
+
+<h3 id="xhrreadystate-请求状态状态码">xhr.readyState 请求状态状态码</h3>
+
+<p>0 UNSENT 创建ajax对象,还未发送请求 <br>
+1 OPENDED  设置请求的地址 执行open后再获取 发送请求 <br>
+2 HEADERS_RECEIVED  返回响应头的内容 <br>
+3 LOADING 响应主体的内容正在返回 <br>
+4 DONE 响应成功，数据全部返回</p>
+
+
+
+<h3 id="clientheight-toppadding-bottompadding-height-水平滚动条高度">clientHeight = topPadding + bottomPadding+ height - 水平滚动条高度。</h3>
+
+
+
+<h3 id="offsetheight-padding-height-border-clientheight-滚动条-边框">offsetHeight = padding + height + border = clientHeight + 滚动条 + 边框。</h3>
+
+
+
+<h3 id="scrollheight-toppadding-bottompadding-内容margin-box的高度">scrollHeight &gt;= topPadding + bottomPadding + 内容margin box的高度。</h3>
+
+
+
+<h3 id="正常redux数据流">正常redux数据流</h3>
+
+<ul><li><p>action =&gt; reducer =&gt; store=&gt;connect=&gt;render</p></li>
+</ul>
+
+
+
+<h3 id="dva中的redux数据流">dva中的redux数据流</h3>
+
+<ul><li><p>effects =&gt; reducer =&gt; store=&gt;connect=&gt;render</p></li>
+</ul>
+
+
+
+<h3 id="移动端滚动加载更多">移动端滚动加载更多</h3>
+
+<ol><li rel="1"><p>节流防抖</p></li>
+<li rel="2"><p>loading状态不请求数据 </p></li>
+<li rel="3"><p>提前做数据准备</p></li>
+<li rel="4"><p>图片懒加载</p></li>
+<li rel="5"><p>加一个延迟</p></li>
+<li rel="6"><p>列表过大时，请求过得数据放在缓存中不DOM中显示</p></li>
+<li rel="7"><p>将滚动操作封装成一个组价</p></li>
+<li rel="8"><p>iOS优化</p></li>
+</ol></div></body></html>

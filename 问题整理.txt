@@ -1,0 +1,121 @@
+window.history里的方法，window.location.hash()返回一个url的锚部分（从#开始的部分），window.location.href()返回的是整个url地址；
+
+
+
+window.history里的方法，History 对象包含用户（在浏览器窗口中）访问过的 URL，window.history.back()加载history列表中的前一个URL，window.history.forward()加载history列表中的下一个URL，window.history.go()加载历史列表中的某个具体的页面参数可以是数字访问的位置是相对于当前URL在列表里的位置可以是具体的URL地址
+
+
+
+react受控组件和非受控组件的区别：受控组件一般用在form表单上，给表单设置一个value属性让它等于{this.state.xxx}，然后this.state.xxx改变这个value就会改变，同时会给这个表单设置一个事件比如onChange这个事件里的函数是用来改变this.state.xxx的。非受控组件就是不加这个value属性的
+
+
+
+react和vue的区别：
+1、react的性能优化需要手动去做（通过shouldComponentUpdate来优化），而vue的性能优化是自动的，但是vue的响应式机制也有问题，就是当state特别多的时候，Watch里的监听方法也会很多，会导致卡顿，所以大型应用（状态特别多的）一般用react，更加可控。
+
+2、react组件是通过JSX生成的，vue是通过这个template模版生成的
+
+3、循环绑定，vue是想循环哪个元素就给那个元素设置v-for='item in xxx'来进行循环，react是它的机制是如果中括号里是一个数组的话他会自动把数组里的值进行字符串拼接所以react的循环一般是通过map方法来实现的
+
+4、对于这个状态的修改，react不能直接修改状态要通过this.setState()方法进行修改同时这个方法会自动执行render刷新视图，vue则可以直接修改视图会自动刷新同时他的state不是必须的一般数据放在data(return {})这个方法里
+
+5、模式不同，react是MVC模式，vue是MVVM模式
+
+
+
+MVC和MVVM模式的区别：
+
+MVC模式中model和view是无法直接进行交互的必须通过controller这个控制器来进行处理，每当页面加载的时候controller会给view添加事件监听，当事件被触发controller会先去处理被触发的事件以后向model请求数据并将其交给view，view在去渲染数据呈现给用户
+
+MVVM是MVC的改良版他实现了model和view的自动同步就是说model变化时候view会实时更新view变化model也会进行改变原理就是通过viewmodel(VM)的双向数据绑定来实现的，原理是通过object.defineProperty这个方法实现的
+
+
+
+v-model的原理：其实它是一个语法糖，比如我在一个组价的data里声明了一个name状态，通过v-model给绑定到一个input框上，就相当于先是把name状态用v-bind绑定给这个input框的value属性上，之后再给这个input框上绑了一个事件@input里面的方法是用来改变name状态的name = e.target.value
+
+
+
+vue的<keep-alive>是VUE的一个内置组件能在组件切换的过程中将状态保存到内存中可以防止重复渲染DOM
+
+
+
+vue中key属性主要作用就是用在vue的虚拟dom算法里，在进行新旧vnode对比时用来辨别vnode,一般和v-for一起使用
+
+
+
+说一下es6的新特性，箭头函数的特点？let、const、class类和ES6继承公有extends私有super()、call继承、寄生组合继承原理是Object.create(要继承的方法对象)来继承公有通过call继承来继承私有、解构赋值、剩余运算符、模版字符串、async/await、promise、Set这个类、for in（用来循环数组的）和for in（可以循环数组也可以循环对象）
+
+
+
+移动端兼容问题：
+
+1、一些情况下对非可点击元素如(label,span）监听点击事件，不会在IOS下触发，css增加cursor:pointer就搞定了
+
+2、click300ms延时响应，使用Fastclick、禁用双击缩放、zepto的tag事件
+
+3、ios 设置input 按钮样式会被默认样式覆盖，可以将默认样式设置为none
+
+4、IOS键盘字母输入,默认首字母大写，input中加入autocapitalize="off"
+
+5、移动端点透问题，尽量都使用touch事件来替换click事件。例如用touchend事件(推荐)，用fastclick
+
+6、滑动卡顿，解决：-webkit-overflow-scrolling:touch;
+
+7、默认情况下，设备会自动识别任何可能是电话号码的字符串。设置telephone=no可以禁用这项功能
+
+8、长时间按住页面出现闪退，element{-webkit-touch-callout:none;}
+
+9、iphone及ipad下输入框默认内阴影，element{-webkit-appearance:none;}
+
+10、旋转屏幕时，字体大小调整的问题，html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:100%;}
+
+
+
+说说对前端有哪些优化：减少 HTTP请求数、 合理设置 HTTP缓存、使用事件委托、压缩图片         
+
+
+
+说一说session cookie 和localstoreage的区别：cookie数据大小不能超过4k，sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大：localStorage存储持久数据浏览器关闭后数据不丢失除非主动删除数据，sessionstoreage里储存的数据在当前浏览器窗口关闭后自动删除，cookie在设置的cookie过期时间之前一直有效；localstoreage和sessionstoreage不会自动把数据发给服务器，cookie的数据会自动的传递到服务器
+
+
+
+git在工作中如何使用：
+
+git init(创建仓库)、git add .(把工作区的内容提交到暂存区，提交所有修改的文件)、git commit -m'本次提交备注的信息'（把暂存区的内容提交到历史区生成历史版本，第一次提交git config --global user.email 'xxx@xx.com'、git config --global user.name 'xxx'）、git push origin master(把本地仓库历史区的信息推送到远程仓库上)、git pull origin master(从远程仓库拉取信息到本地仓库)
+
+让本地仓库和远程仓库进行关联：git remote add origin(桥梁名) 远程仓库地址
+
+创建分支：git branch 分支名(创建分支)、git branch(查看分支)、git checkout 分支名(跳转分支)；第一次用分支提交到远程仓库上的时候要用“git push --set-upstream origin 分支名”之后提交就直接使用“git push origin master”、版本回退用“git reset --hard HEAD^”
+
+
+
+跨域的几种方式：jsonp,cros,反向代理给config文件夹里的index.js的div对象里加入proxyTable这个对象里面去设置target
+
+
+
+DOM-diff原理；将新的虚拟dom和与其对应的旧的虚拟dom节点进行对比，只更新对比后不同的虚拟dom节点
+
+
+
+ajax中get和post有什么区别：传参方式的不同get直接用字符串拼接post是传入一个对象，get会进行缓存（在链接最后加一个Math.random()）post不会，get大小为8K左右post理论上没有大小但是越大响应的速度就越慢，get不安全容易被窃取
+
+
+
+后台请求超时设置：xhr.timeout = 1000;/xhr.ontimeout = function(){};
+
+
+
+vue中如何在全局中定义一个变量：
+
+1、设置一个专用的全变量的初始状态，再用export default暴露出去，在main.js里面先引入创建的模块文件，使用Vue.prototype.引入的模块文件名字 = 引入的模块名字，用“this.引入的文件名字”进行获取
+
+
+
+
+
+
+
+
+
+
+

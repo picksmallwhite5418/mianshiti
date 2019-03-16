@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script type="text/javascript">
+//第一种方法
+function methodFirst() {
+    var str = "晨哥帅不帅";
+    var obj = {}; //把每个字符单个存在对象中
+    var maxChars = ""; //存储出现次数最多的字符
+    for (var i = 0; i < str.length; i++) {
+        var chars = str[i];
+        //判断字符串如果不存在就以对象形势存起来  1代表第一次
+        if (!obj[chars]) {
+            obj[chars] = 1;
+        } else {
+            //如果存在过的话   1++ 累计次数
+            obj[chars]++;
+        }
+        //简写
+        // !obj[chars] ? obj[chars] = 1 : obj[chars]++;
+    }
+
+
+    //循环保存的字符串对象  对比出里面哪个字符最大
+    for (var item in obj) {
+        if (maxChars == "" || obj[item] > obj[maxChars]) {
+            //每次保存次数最大字符
+            maxChars = item;
+        }
+    }
+    //最大次数
+    console.log(obj[maxChars]);
+    //出现最多字符
+    console.log(maxChars);
+}
+//第二种方法
+function methodSecond() {
+    var str = "晨哥帅不帅";
+    var obj = {}; //把每个字符单个存在对象中
+    var len = 0; //字符长度
+    var maxChars = ""; //存储出现次数最多的字符
+
+    //  /./g 匹配除了换行符 \n 之外的任何单字符
+    str.replace(/./g, function(a) {
+        obj[a] = (obj[a] || 0) + 1;
+        if (obj[a] > len) {
+            //最长的长度赋值给len
+            len = obj[a];
+            //保存最多的字符
+            maxChars = a;
+        }
+    })
+    //输出出现次数最多字符
+    console.log(maxChars);
+}
+//第三种方法
+function methodThird() {
+    var str = "晨哥帅不帅";
+    var obj = {}; //把每个字符单个存在对象中
+    var len = 0; //字符长度
+    var maxChars = ""; //存储出现次数最多的字符
+
+    for (var i = 0; i < str.length; i++) {
+    	var chars = str[i];
+        obj[chars] = (obj[chars] || 0) + 1;
+        if (obj[chars] > len) {
+            //最长的长度赋值给len
+            len = obj[chars];
+            //保存最多的字符
+            maxChars = chars;
+        }
+    }
+    //输出出现次数最多字符
+    console.log(maxChars);
+}
+</script>

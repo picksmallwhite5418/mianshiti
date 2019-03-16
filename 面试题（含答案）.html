@@ -1,0 +1,401 @@
+<!DOCTYPE html><html><head><title>1.看代码写结果【阿里面试题】</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h4 id="1看代码写结果阿里面试题">1.看代码写结果【阿里面试题】</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">var a = {n:<span class="hljs-number">4</span>}<span class="hljs-comment">;</span>
+</div><div class="hljs-line">var <span class="hljs-keyword">b </span>= a<span class="hljs-comment">;</span>
+</div><div class="hljs-line"><span class="hljs-keyword">b.x </span>= a = {n: <span class="hljs-number">10</span>}<span class="hljs-comment">; </span>
+</div><div class="hljs-line">console.log(a.x)<span class="hljs-comment">; </span>
+</div><div class="hljs-line">console.log(<span class="hljs-keyword">b.x); </span>
+</div></code></pre>
+
+
+
+<h4 id="2-写出你掌握的-js-继承方式-网易面试题">2. 写出你掌握的 JS 继承方式 【网易面试题】</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line">  <span class="hljs-number">1</span>) 原型继承 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.welcome = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"欢迎你的到来"</span>);
+</div><div class="hljs-line">} };
+</div><div class="hljs-line">B.prototype = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>; <span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> B;
+</div><div class="hljs-line">b.pop();
+</div><div class="hljs-line"><span class="hljs-number">2</span>) call 继承 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.a = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a"</span>)
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.x = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">       <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"x"</span>)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">};
+</div><div class="hljs-line">A.prototype.sum = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>);
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span>(<span class="hljs-params"></span>) </span>{ A.call(<span class="hljs-keyword">this</span>);
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.f = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">} }
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> B; b.a() <span class="hljs-comment">// 输出结果 a;</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">     <span class="hljs-number">3</span>) 中间类继承 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">avge</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-built_in">arguments</span>.__proto__ = <span class="hljs-built_in">Array</span>.prototype; <span class="hljs-built_in">arguments</span>.sort(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a,b</span>) </span>{
+</div><div class="hljs-line">       <span class="hljs-keyword">return</span> a-b;
+</div><div class="hljs-line">    });
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-number">4</span>) 寄生组合式继承 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parent</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.x = <span class="hljs-number">100</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Parent.prototype.getX = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(++<span class="hljs-keyword">this</span>.x);
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.y = <span class="hljs-number">200</span>;
+</div><div class="hljs-line">Parent.call(<span class="hljs-keyword">this</span>); }
+</div><div class="hljs-line">Child.prototype = <span class="hljs-built_in">Object</span>.create(Parent.prototype);
+</div><div class="hljs-line"><span class="hljs-number">5</span>) es6 中 <span class="hljs-class"><span class="hljs-keyword">class</span>,<span class="hljs-title">extend</span> 继承 <span class="hljs-title">class</span> <span class="hljs-title">Fn</span></span>{
+</div><div class="hljs-line"><span class="hljs-keyword">constructor</span>(num){ <span class="hljs-keyword">this</span>.x = num;
+</div><div class="hljs-line">}; sum(){
+</div><div class="hljs-line">       <span class="hljs-built_in">console</span>.log(<span class="hljs-number">10</span>)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fn</span></span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">constructor</span>(a){
+</div><div class="hljs-line">       <span class="hljs-keyword">super</span>(a);
+</div><div class="hljs-line">       <span class="hljs-keyword">this</span>.b = <span class="hljs-number">100</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">};
+</div></code></pre>
+
+
+
+<h4 id="3callapplybind-的区别-网易面试题">3.call、apply、bind 的区别 【网易面试题】</h4>
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-number">1</span>) apply:最多只能有两个参数——新 <span class="hljs-keyword">this</span> 对象和一个数组 argArray。如果给该方法传递多个参数, 则把参数都写进这个数组里面,当然,即使只有一个参数,也要写进数组里。
+</div><div class="hljs-line">如果 argArray 不是一个有效的数组或 <span class="hljs-built_in">arguments</span> 对象,那么将导致一个 <span class="hljs-built_in">TypeError</span>。
+</div><div class="hljs-line">如果没有提供 argArray 和 thisObj 任何一个参数,那么 <span class="hljs-built_in">window</span> 对象将被用作 thisObj,并且无法被传递任何参数。
+</div><div class="hljs-line"><span class="hljs-number">2</span>) call:它可以接受多个参数,第一个参数与 apply 一样,后面则是一串参数列表。
+</div><div class="hljs-line">这个方法主要用在 js 对象各方法相互调用的时候,使当前 <span class="hljs-keyword">this</span> 实例指针保持一致, 或者在特殊情况下需要改变 <span class="hljs-keyword">this</span> 指针。如果没有提供 thisObj 参数,那么 <span class="hljs-built_in">window</span> 对象被用作 thisObj。
+</div><div class="hljs-line"><span class="hljs-number">3</span>) bind:预处理改变 <span class="hljs-keyword">this</span>,但是调用 bind 的方法并没有执行;传递参数规则和 call 一致;
+</div></code></pre>
+
+
+
+<h4 id="4实现跨域的方式有哪些京东面试题">4.实现跨域的方式有哪些?【京东面试题】</h4>
+
+<blockquote>
+  <p>1.图片 ping 或 script 标签跨域 2.JSONP 跨域 <br>
+  3.CORS <br>
+  4.window.name+iframe 5.window.postMessage() 6.修改 document.domain 跨子域 7.WebSocket <br>
+  8.代理</p>
+</blockquote>
+
+
+
+<h4 id="5说一说-sessionstoragelocalstorage-和-cookie-的区别-京东面试题">5.说一说 sessionStorage、localStorage 和 cookie 的区别 【京东面试题】</h4>
+
+<blockquote>
+  <p>1.作用域不同,sessionStorage 不在不同的浏览器窗口中共享,即使是同一个页面;localstorage 在所有同源窗口 2.数据有效期不同,sessionStorage:仅在当前浏览器窗口关闭之前有效;localStorage:始终有效,窗口或浏览器关闭也 <br>
+  一直保存,因此用作持久数据;cookie:只在设置的 cookie 过期时间之前有效,即使窗口关闭或浏览器关闭 中都是共享的;cookie 也是在所有同源窗口中都是共享的 <br>
+  3.存储大小限制也不同,cookie 数据不能超过 4K,同时因为每次 http 请求都会携带 cookie、 <br>
+  所以 cookie 只适合保存很小的数据,如会话标识。sessionStorage 和 localStorage 虽然也有存储大小的限制,但比 cookie <br>
+  大得多,可以达到 5M 或更大 <br>
+  4.cookie 数据始终在同源的 http 请求中携带(即使不需要),即 cookie 在浏览器和服务器间来回传递,而 sessionStorage <br>
+  和 localStorage 不会自动把数据发送给服务器,仅在本地保存。 <br>
+  cookie 数据还有路径(path)的概念,可以限制 cookie 只属于某个路径下 5.web Storage 支持事件通知机制,可以将数据更新的通知发送给监听者</p>
+</blockquote>
+
+
+
+<h4 id="6说说对前端有哪些优化-好未来面试题">6.说说对前端有哪些优化 【好未来面试题】</h4>
+
+<blockquote>
+  <p>1.减少 HTTP 请求数 2.合理设置 HTTP 缓存 3.资源合并与压缩 <br>
+  4.CSS Sprites 5.“惰性”加载 <br>
+  6.异步请求 7.避免重复的资源请求 8.减少不必要的 HTTP 跳转</p>
+</blockquote>
+
+<h4 id="7http-状态消息有哪些百度面试题">7.http 状态消息有哪些?【百度面试题】</h4>
+
+<blockquote>
+  <p>2 开头 (请求成功)表示成功处理了请求的状态代码。 <br>
+  200       (成功) 服务器已成功处理了请求。 通常,这表示服务器提供了请求的网页。 201       (已创建) 请求成功并且服务器创建了新的资源。 <br>
+  202       (已接受) 服务器已接受请求,但尚未处理。 <br>
+  203       (非授权信息) 服务器已成功处理了请求,但返回的信息可能来自另一来源。 204       (无内容) 服务器成功处理了请求,但没有返回任何内容。 <br>
+  205       (重置内容) 服务器成功处理了请求,但没有返回任何内容。 206       (部分内容) 服务器成功处理了部分 GET 请求。 <br>
+  3 开头 (请求被重定向)表示要完成请求,需要进一步操作。 通常,这些状态代码用来重定向。 <br>
+  300       (多种选择) 针对请求,服务器可执行多种操作。服务器可根据请求者(useragent) 列表供请求者选择。 <br>
+  301 (永久移动) 请求的网页已永久移动到新位置。 服务器返回此响应(对 GET 或 HEAD 请求者转到新位置。 <br>
+  302       (临时移动) 服务器目前从不同位置的网页响应请求,但请求者应继续使用原有位置来进行以后的请求。 303       (查看其他位置) 请求者应当对不同的位置使用单独的 GET 请求来检索响应时,服务器返回此代码。 <br>
+  304       (未修改) 自从上次请求后,请求的网页未修改过。 服务器返回此响应时,不会返回网页内容。 <br>
+  305       (使用代理) 请求者只能使用代理访问请求的网页。 如果服务器返回此响应,还表示请求者应使用代理。 307       (临时重定向) 服务器目前从不同位置的网页响应请求,但请求者应继续使用原有位置来进行以后的请求。 <br>
+  4 开头 (请求错误)这些状态代码表示请求可能出错,妨碍了服务器的处理。 <br>
+  400       (错误请求) 服务器不理解请求的语法。 <br>
+  401       (未授权) 请求要求身份验证。 对于需要登录的网页,服务器可能返回此响应。 <br>
+  403       (禁止) 服务器拒绝请求。 <br>
+  404       (未找到) 服务器找不到请求的网页。 <br>
+  405       (方法禁用) 禁用请求中指定的方法。 <br>
+  406       (不接受) 无法使用请求的内容特性响应请求的网页。 <br>
+  407       (需要代理授权) 此状态代码与 401(未授权)类似,但指定请求者应当授权使用代理。 <br>
+                            选择一项操作,或提供操作 <br>
+              请求的响应)时,会自动将</p>
+</blockquote>
+
+<p>408       (请求超时) 服务器等候请求时发生超时。 <br>
+409       (冲突) 服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。 410       (已删除) 如果请求的资源已永久删除,服务器就会返回此响应。 <br>
+411       (需要有效长度) 服务器不接受不含有效内容长度标头字段的请求。 <br>
+412       (未满足前提条件) 服务器未满足请求者在请求中设置的其中一个前提条件。 <br>
+413       (请求实体过大) 服务器无法处理请求,因为请求实体过大,超出服务器的处理能力。 414       (请求的 URI 过长) 请求的 URI(通常为网址)过长,服务器无法处理。 <br>
+415       (不支持的媒体类型) 请求的格式不受请求页面的支持。 <br>
+416       (请求范围不符合要求) 如果页面无法提供请求的范围,则服务器会返回此状态代码。 417       (未满足期望值) 服务器未满足”期望”请求标头字段的要求。 <br>
+5 开头(服务器错误)这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误, 请求出错。 <br>
+500       (服务器内部错误) 服务器遇到错误,无法完成请求。 <br>
+501       (尚未实施) 服务器不具备完成请求的功能。 例如,服务器无法识别请求方法时可能会返回此代码。 502       (错误网关) 服务器作为网关或代理,从上游服务器收到无效响应。 <br>
+503       (服务不可用) 服务器目前无法使用(由于超载或停机维护)。 通常,这只是暂时状态。 <br>
+504       (网关超时) 服务器作为网关或代理,但是没有及时从上游服务器收到请求。 <br>
+505         (HTTP 版本不受支持) 服务器不支持请求中所用的 HTTP 协议版本。 <br>
+                                             而不是</p>
+
+
+
+<h4 id="8你怎么理解-js-中的面向对象网易面试题">8.你怎么理解 js 中的面向对象?【网易面试题】</h4>
+
+<blockquote>
+  <p>面向对象即拥有类的概念,抽象实例对象的公共属性与方法,基于类可以创建任意多个实例对象, 一般具有封装、继承、多态的特性! <br>
+  但 JS 中对象与纯面向对象语言中的对象是不同的,ECMA 标准定义 JS 中对象:无序属性的集合,其属性可以包含基本值、 对象或者函数。可以简单理解为 JS 的对象是一组无序的值,其中的属性或方法都有一个名字,根据这个名字可以访问相 映射的值(值可以是基本值/对象/方法)。</p>
+</blockquote>
+
+<h4 id="9请说出你对重排重绘的理解-网易面试题">9.请说出你对重排重绘的理解 【网易面试题】</h4>
+
+<blockquote>
+  <p>浏览器下载完页面中的所有组件——HTML 标记、JavaScript、CSS、图片之后会解析生成两个内部数据结构; 分别是 DOM 树和渲染树; <br>
+  DOM 树表示页面结构,渲染树表示 DOM 节点如何显示。DOM 树中的每一个需要显示的节点在渲染树中至少存 在一个对应的节点(隐藏的 DOM 元素 disply 值为 none 在渲染树中没有对应的节点)。 渲染树中的节点被称为“帧”或“盒”,符合 CSS 模型的定义,理解页面元素为一个具有填充,边距, 边框和位置的盒子。一旦 DOM 和渲染树构建完成,浏览器就开始显示(绘制)页面元素。 <br>
+  当 DOM 的变化影响了元素的几何属性(宽或高),浏览器需要重新计算元素的几何属性,同样其他元素的几何属性和位置 <br>
+  也会因此受到影响。浏览器会使渲染树中受到影响的部分失效,并重新构造渲染树。这个过程称为重排。完成重排后, 会重新绘制受影响的部分到屏幕,该过程称为重绘。</p>
+</blockquote>
+
+
+
+<h4 id="10写出你所熟知的-es6-新语法-用友面试题">10.写出你所熟知的 ES6 新语法 【用友面试题】</h4>
+
+<p>1.let 定义变量,不存在变量提升;const 定义常量,不可更改; 2.新增块级作用域 <br>
+3.箭头函数,箭头函数中没有 this,其中的 this 指向外层作用域中的 this; 4.解构赋值 <br>
+5.class 定义类,extend 继承 6.新增模块导入导出,import 和 export; 7.扩展运算符(…)</p>
+
+
+
+<h4 id="11阿里面试题">11.【阿里面试题】</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foo</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">getName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">       <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>);
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Foo.getName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>);
+</div><div class="hljs-line">};
+</div><div class="hljs-line">Foo.prototype.getName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">3</span>);
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> getName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-number">4</span>);
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getName</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span>);
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Foo.getName(); <span class="hljs-comment">// 2 getName();         // 4 Foo().getName(); // 1 getName(); // 1</span>
+</div><div class="hljs-line"><span class="hljs-keyword">new</span> Foo.getName(); <span class="hljs-comment">// 2</span>
+</div><div class="hljs-line"><span class="hljs-keyword">new</span> Foo().getName();           <span class="hljs-comment">// 3 new new Foo().getName(); // 3</span>
+</div></code></pre>
+
+<h4 id="12腾讯面试题">12.【腾讯面试题】</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"> <span class="hljs-keyword">let</span> Fn = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">x = <span class="hljs-number">0</span>, y = <span class="hljs-number">0</span></span>) </span>{ <span class="hljs-keyword">this</span>.x = x;
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.y = y;
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.getX = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.x); }
+</div><div class="hljs-line">};
+</div><div class="hljs-line">Fn.prototype.getX = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.x); };
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> f1 = <span class="hljs-keyword">new</span> Fn; Fn.prototype = {
+</div><div class="hljs-line"><span class="hljs-attr">getY</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.y);
+</div><div class="hljs-line">} };
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> f2 = <span class="hljs-keyword">new</span> Fn(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>); <span class="hljs-built_in">console</span>.log(f1.constructor===f2.constructor); <span class="hljs-comment">// false f1.getX(); //0</span>
+</div><div class="hljs-line">f1.getY();         <span class="hljs-comment">// 报错</span>
+</div><div class="hljs-line">f1.__proto__.getX();<span class="hljs-comment">// undefined f1.__proto__.getY();// 报错</span>
+</div><div class="hljs-line">f2.getX(); <span class="hljs-comment">// 1</span>
+</div><div class="hljs-line">f2.getY(); <span class="hljs-comment">// 2</span>
+</div><div class="hljs-line">f2.__proto__.getX();<span class="hljs-comment">// 报错</span>
+</div><div class="hljs-line">f2.__proto__.getY();<span class="hljs-comment">// undefined</span>
+</div></code></pre>
+
+<pre class="prettyprint hljs-dark"><code class="hljs clean"><div class="hljs-line">                                                                                                                                                                           #### <span class="hljs-number">13.</span>【腾讯面试题】
+</div><div class="hljs-line">                                                                                                                                                                           ```
+</div></code></pre>
+
+<p>let n = 2, <br>
+fn = () =&gt; { <br>
+this.n *= 3; <br>
+n++; <br>
+return m=&gt;console.log((++n)+m); <br>
+}; <br>
+var f = fn(4); <br>
+f(5); // 9 <br>
+fn(4)(5); //11 <br>
+f(6); // 13 console.log(n); // 7</p>
+
+<p>14.【百度面试题】</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-built_in">window</span>.val = <span class="hljs-number">1</span>; <span class="hljs-keyword">let</span> json = { <span class="hljs-attr">val</span>: <span class="hljs-number">10</span>,
+</div><div class="hljs-line"><span class="hljs-attr">dbl</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.val) <span class="hljs-keyword">this</span>.val *= <span class="hljs-number">2</span>;
+</div><div class="hljs-line">} };
+</div><div class="hljs-line">json.dbl(); <span class="hljs-comment">// 10</span>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> dbl = json.dbl;
+</div><div class="hljs-line">dbl(); <span class="hljs-comment">//1</span>
+</div><div class="hljs-line">json.dbl.call(<span class="hljs-built_in">window</span>); <span class="hljs-comment">//2 alert(window.val + json.val);// 24</span>
+</div></code></pre>
+
+<p>15.vue 声明周期钩子函数都有哪些?【爱奇艺面试题】</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs basic"><div class="hljs-line"><span class="hljs-number">1.</span>beforeCreate created <span class="hljs-number">2.</span>befo<span class="hljs-comment">reMount mounted 3.beforeUpdate updated 4.beforeDestroy destroyed</span>
+</div></code></pre>
+
+<p>17.vue 的双向数据绑定原理 【腾讯面试题】</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs gauss"><div class="hljs-line">vue 是通过数据劫持的方式来做数据绑定的,其中最核心的方法便是通过 Object.defineProperty()来实现对属性的劫持, 达到监听数据变动的目的,
+</div><div class="hljs-line">无疑这个方法是本文中最重要、最基础的内容之一
+</div><div class="hljs-line">实现 mvvm 的双向绑定,就必须要实现以下几点:
+</div><div class="hljs-line"><span class="hljs-number">1</span>、数据监听器 Observer,能够对数据对象的所有属性进行监听,如有变动可拿到最新值并通知订阅者
+</div><div class="hljs-line"><span class="hljs-number">2</span>、指令解析器 <span class="hljs-keyword">Compile</span>,对每个元素节点的指令进行扫描和解析,根据指令模板替换数据,以及绑定相应的更新函数 
+</div><div class="hljs-line"><span class="hljs-number">3</span>、Watcher,作为连接 Observer 和 <span class="hljs-keyword">Compile</span> 的桥梁,能够订阅并收到每个属性变动的通知,执行指令绑定的相应回调函数,
+</div><div class="hljs-line">从而更新视图
+</div></code></pre>
+
+<p>————— HTML5+CSS3 —————</p>
+
+
+
+<h4 id="1html5-有哪些新特性移除了那些元素如何处理-html5-新标签浏览器兼容问题腾讯面试题">1.html5 有哪些新特性、移除了那些元素?如何处理 HTML5 新标签浏览器兼容问题?【腾讯面试题】</h4>
+
+<blockquote>
+  <p>新特性,新增元素: <br>
+  1)用于绘画的 canvas 元素 <br>
+  2)用于媒介回放的 video 和 audio 元素 <br>
+  3)对本地离线存储的更好的支持 <br>
+  4)新的特殊内容元素,比如 article、footer、header、nav、section <br>
+  5)新的表单控件,比如 calendar、date、time、email、url、search 6)控件元素:webworker,websockt,Geolocation <br>
+  移除元素: <br>
+  1)显现层元素:basefont,big,center,font,s,strike,tt,u <br>
+  2)性能较差元素:frame,frameset,noframes <br>
+  处理兼容问题有两种方式: <br>
+  1)IE6/IE7/IE8 支持通过 document 方法产生的标签,利用这一特性让这些浏览器支持 HTML5 新标签。 <br>
+  2)使用是 html5shim 框架; <br>
+  另外,DOCTYPE 声明的方式是区分 HTML 和 HTML5 标志的一个重要因素,此外,还可以根据新增的结构,功能元素来加以区分;</p>
+</blockquote>
+
+
+
+<h4 id="2如何支持-html5-新标签网易面试题">2.如何支持 HTML5 新标签?【网易面试题】</h4>
+
+<blockquote>
+  <p>1)IE8/IE7/IE6 支持通过 document.createElement 方法产生的标签,可以利用这一特性让这些浏览器支持 HTML5 新标签, 浏览器支持新标签后,还需要添加标签默认的样式; <br>
+  2)当然最好的方式是直接使用成熟的框架、使用最多的是 html5shim 框架 <br>
+  <!--[if lt IE 9]&gt; &lt;br&gt;&#10;  &lt;script&gt; src=&#34;http://html5shim.googlecode.com/svn/trunk/html5.js&#34;&lt;/script&gt; &lt;![endif]--></p>
+</blockquote>
+
+
+
+<h4 id="3请举例说明-css3-新增伪类选择器好未来面试题">3.请举例说明 CSS3 新增伪类选择器?【好未来面试题】</h4>
+
+<blockquote>
+  <p>p:first-of-type       选择属于其父元素的首个 </p><p> 元素的每个 </p><p> 元素; <br>
+            p:last-of-type <br>
+  p:only-of-type <br>
+  p:only-child <br>
+  p:nth-child(1) <br>
+  :enabled :disabled 控制表单控件的禁用状态; :checked             单选框或复选框被选中; <br>
+  选择属于其父元素的最后 </p><p> 元素的每个 </p><p> 元素; 选择属于其父元素唯一的 </p><p> 元素的每个 </p><p> 元素; 选择属于其父元素的唯一子元素的每个 </p><p> 元素; 选择属于其父元素的第一个子元素的每个 </p><p> 元素;</p>
+</blockquote>
+
+
+
+<h4 id="4常用的浏览器的内核分别是什么京东面试题">4.常用的浏览器的内核分别是什么?【京东面试题】</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs elixir"><div class="hljs-line">Trident 内核<span class="hljs-symbol">:IE</span>,MaxThon,TT,The World,<span class="hljs-number">360</span>,搜狗浏览器等。[又称 MSHTML] Gecko 内核<span class="hljs-symbol">:Netscape6</span> 及以上版本,FF,MozillaSuite/SeaMonkey 等
+</div><div class="hljs-line">Presto 内核<span class="hljs-symbol">:Opera7</span> 及以上 [Opera 内核原为<span class="hljs-symbol">:Presto</span>,现为<span class="hljs-symbol">:Blink</span>] Webkit内核<span class="hljs-symbol">:Safari</span>,Chrome等 [Chrome的<span class="hljs-symbol">:Blink</span>(WebKit的分支)]
+</div></code></pre>
+
+
+
+<h4 id="5css3-新增的属性有哪些小米面试题">5.css3 新增的属性有哪些?【小米面试题】</h4>
+
+<blockquote>
+  <p>【1.CSS3 边框】 <br>
+  border-radius:CSS3 圆角边框。在 CSS2 中添加圆角矩形需要技巧,我们必须为每个圆角使用不同的图片,在 CSS3 中, <br>
+  创建圆角是非常容易的,在 CSS3 中,border-radius 属性用于创建圆角。border:2px solid; <br>
+  box-shadow:CSS3 边框阴影。在 CSS3 中,box-shadow 用于向方框添加阴影。box-shadow:10px 10px 5px #888888; border-image:CSS3 边框图片。通过 CSS3 的 border-image 属性,您可以使用图片来创建边框。border-image: <br>
+  url(border.png) 30 30 round; 【2.CSS3 背景】 <br>
+  background-size: 属性规定背景图片的尺寸。在 CSS3 之前,背景图片的尺寸是由图片的实际尺寸决定的。在 CSS3 中, 可以规定背景图片的尺寸,这就允许我们在不同的环境中重复使用背景图片。您能够以像素或百分比规定尺寸。如果以百分比规定尺 寸,那么尺寸相对于父元素的宽度和高度。 <br>
+  background-origin :属性规定背景图片的定位区域。背景图片可以放置于 content-box、padding-box 或 border-box 区 域。 <br>
+  【3.CSS3 文字效果】 <br>
+  text-shadow:在 CSS3 中,text-shadow 可向文本应用阴影。text-shadow:5px 5px 5px #FFFFFF; <br>
+  word-wrap :单词太长的话就可能无法超出某个区域,允许对长单词进行拆分,并换行到下一行:p{word-wrap:break-word;} <br>
+  【4.CSS3 2D 转换】 <br>
+  transform:通过 CSS3 转换,我们能够对元素进行移动、缩放、转动、拉长或拉伸。 <br>
+  translate():元素从其当前位置移动,根据给定的 left(x 坐标) 和 top(y 坐标) 位置参数:transform:translate (50px,100px);值 translate(50px,100px) 把元素从左侧移动 50 像素,从顶端移动 100 像素。 <br>
+    localStorage 长期存储数据,浏览器关闭后数据不丢失; sessionStorage 数据在浏览器关闭后自动删除; <br>
+        Trident 内核:IE,MaxThon,TT,The World,360,搜狗浏览器等。[又称 MSHTML] Gecko 内核:Netscape6 及以上版本,FF,MozillaSuite/SeaMonkey 等 <br>
+  Presto 内核:Opera7 及以上 [Opera 内核原为:Presto,现为:Blink] Webkit内核:Safari,Chrome等 [Chrome的:Blink(WebKit的分支)] <br>
+   rotate():元素顺时针旋转给定的角度。允许负值,元素将逆时针旋转。transform:rotate(30deg);值 rotate(30deg) 把 元素顺时针旋转 30 度。 <br>
+  scale():元素的尺寸会增加或减少,根据给定的宽度(X 轴)和高度(Y 轴)参数:transform:scale(2,4);值 scale(2,4) 把宽度转换为原始尺寸的 2 倍,把高度转换为原始高度的 4 倍。 <br>
+  skew():元素转动给定的角度,根据给定的水平线(X 轴)和垂直线(Y 轴)参数:transform:skew(30deg,20deg);值 skew(30deg,20deg) 围绕 X 轴把元素转动 30 度,围绕 Y 轴转动 20 度。 <br>
+  matrix() : <br>
+  matrix() 方法把所有 2D 转换方法组合在一起。 <br>
+  matrix() 方法需要六个参数,包含数学函数,允许您:旋转、缩放、移动以及倾斜元素。 <br>
+  【5.CSS3 3D 转换】 <br>
+  rotateX():元素围绕其 X 轴以给定的度数进行旋转。transform:rotateX(120deg); rotateY():元素围绕其 Y 轴以给定的度数进行旋转。transform:rotateY(120deg); <br>
+  【6.CSS3 过渡】当元素从一种样式变换为另一种样式时为元素添加效果。 <br>
+  【7.CSS3 动画】通过 CSS3,我们能够创建动画,这可以在许多网页中取代动画图片、Flash 动画以及 JavaScript。 【8.CSS3 多列】 <br>
+  column-count:属性规定元素应该被分隔的列数。 column-gap:属性规定列之间的间隔。 <br>
+  column-rule :属性设置列之间的宽度、样式和颜色规则。 <br>
+  【9.CSS3 用户界面】 <br>
+  resize:属性规定是否可由用户调整元素尺寸。 box-sizing:属性允许您以确切的方式定义适应某个区域的具体内容。 outline-offset :属性对轮廓进行偏移,并在超出边框边缘的位置绘制轮廓。</p>
+</blockquote>
+
+
+
+<h4 id="6浮动塌陷问题如何解决百度面试题">6.浮动塌陷问题如何解决?【百度面试题】</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs arduino"><div class="hljs-line"><span class="hljs-number">1</span>、<span class="hljs-built_in">clear</span> 清除浮动(添加空 div 法)
+</div><div class="hljs-line">在浮动元素下方添加空 div,并给该元素写 css 样式: {<span class="hljs-built_in">clear</span>:both;<span class="hljs-built_in">height</span>:<span class="hljs-number">0</span>;<span class="hljs-built_in">overflow</span>:hidden;}
+</div><div class="hljs-line"><span class="hljs-number">2</span>、方法:给浮动元素父级设置高度
+</div><div class="hljs-line">我们知道了高度塌陷是应为给浮动元素的父级高度是自适应导致的,那么我们给它的设置适当的高度就可以解决这个问题了。 缺点:在浮动元素高度不确定的时候不适用
+</div><div class="hljs-line"><span class="hljs-number">3</span>、方法:以浮制浮(父级同时浮动)何谓“以浮制浮”呢?就是**让浮动元素的父级也浮动**。缺点: 添加浮动,浮动多了容易出现问题。
+</div><div class="hljs-line"><span class="hljs-number">4</span>、方法:父级设置成 <span class="hljs-keyword">inline</span>-block 缺点:父级的 margin 左右 <span class="hljs-keyword">auto</span> 失效,无法使用 margin: <span class="hljs-number">0</span> <span class="hljs-keyword">auto</span>;居中了
+</div><div class="hljs-line"><span class="hljs-number">5</span>、 br 清浮动
+</div><div class="hljs-line">&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"box"</span>&gt;
+</div><div class="hljs-line">&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"top"</span>&gt;&lt;/div&gt;
+</div><div class="hljs-line">&lt;br <span class="hljs-built_in">clear</span>=<span class="hljs-string">"both"</span> /&gt; &lt;/div&gt;
+</div><div class="hljs-line">br 标签自带 <span class="hljs-built_in">clear</span> 属性,将它设置成 both 其实和添加空 div 原理是一样的。 问题:不符合工作中:结构、样式、行为,三 者分离的要求。
+</div><div class="hljs-line">                                                       需要给每个浮动元素父级
+</div><div class="hljs-line">     <span class="hljs-number">6</span>、给父级添加 <span class="hljs-built_in">overflow</span>:hidden 清浮动方法; 问题:需要配合 宽度 或者 zoom 兼容 IE6 IE7;
+</div><div class="hljs-line"><span class="hljs-built_in">overflow</span>: hidden;
+</div><div class="hljs-line">*zoom: <span class="hljs-number">1</span>;
+</div><div class="hljs-line"><span class="hljs-number">7</span>、万能清除法 after 伪类 清浮动(现在主流方法,推荐使用) .clearfix:after{content:<span class="hljs-string">''</span>;<span class="hljs-built_in">display</span>:block;<span class="hljs-built_in">clear</span>:both;<span class="hljs-built_in">height</span>:<span class="hljs-number">0</span>;font-<span class="hljs-built_in">size</span>:<span class="hljs-number">0</span>;<span class="hljs-built_in">overflow</span>:hidden;visibility:
+</div><div class="hljs-line">hidden;} .clearfix{zoom:<span class="hljs-number">1</span>;}
+</div></code></pre></div></body></html>

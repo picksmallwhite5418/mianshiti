@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>when</title>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+	$.when(
+		$.ajax({
+			type:'get',
+			url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=web前端",	
+			dataType: 'jsonp',
+		    jsonp: 'cb',
+		}),
+		$.ajax({
+			type:'get',
+			url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=百度",	
+			dataType: 'jsonp',
+		    jsonp: 'cb',
+		})
+		
+	).done(function(a1,a2){
+		console.log(a1);
+		console.log(a2);
+	});
+</script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jquery多种绑定事件方法</title>
+		<style>
+			div {
+				width: 300px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				padding: 20px;
+				color: #fff;
+				background: green;
+				float: left;
+				margin-left: 20px;
+			}
+			div span{
+				padding: 10px;
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<span>这是live的儿子</span>
+		</div>
+		<div>
+			<span>这是bind的儿子</span>
+		</div>
+		<div>
+			<span>这是delegate的儿子</span>
+		</div>
+		<div>
+			<span>这是on的儿子</span>
+		</div>
+	</body>
+
+</html>
+<!--<script type="text/javascript" src="jquery-1.8.3.min.js"></script>-->
+<!--<script src="http://www.jq22.com/jquery/jquery-1.9.1.js"></script>-->
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+//	$("J_div").eq(0).live('click',function(){
+//		alert($(this).text());
+//	})
+
+
+	//bind绑定事件
+//	$('div').eq(1).bind('click', function() {
+//		alert($(this).text());
+//	});
+	//bind事件委托	发现绑定给子元素  点击父元素也会触发事件
+	$('div').eq(1).bind('click','span',function() {
+		console.log(this);
+		alert($(this).text());
+	});
+	
+	
+	
+	
+	//delegate绑定事件
+//	$('div').eq(2).delegate('click', function() {
+//		alert($(this).text());
+//	});
+	//delegate事件委托	发现绑定给子元素还是会触发父元素
+	$('div').eq(2).delegate('span','click',function() {
+		alert($(this).text());
+	});
+	
+	//on绑定事件
+//	$('div').eq(3).on('click', function() {
+//		alert($(this).text());
+//	});
+	//on事件委托	发现绑定给子元素 点击父元素不会触发事件
+	$('div').eq(3).on('click','span',function() {
+		alert($(this).text());
+	});
+	
+	
+	
+	
+</script>

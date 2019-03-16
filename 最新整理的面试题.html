@@ -1,0 +1,508 @@
+<!DOCTYPE html><html><head><title>非技术类问题</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h3 id="非技术类问题">非技术类问题</h3>
+
+<ul><li>自我介绍下</li>
+<li>.你在这个行业里的职业规划？ </li>
+<li>你想进入一个什么样的团队？</li>
+<li>你想找个什么样的工作? </li>
+<li>详细讲解 一个项目中遇到的问题？怎么解决的？</li>
+<li>你有什么想问我的么？</li>
+<li>程序出现bug了，你是如何调试的 </li>
+<li>项目流程是什么样的？</li>
+<li>最有成就感的项目,解决的难题？</li>
+</ul>
+
+<h3 id="面试题">面试题</h3>
+
+<ul><li>1.HTTP的状态码+浏览器处理缓存的机制？ </li>
+<li>2.http请求的304是怎么实现的  <br>
+通过下面这篇文章详细了解浏览器缓存机制 <br>
+<a href="https://www.cnblogs.com/slly/p/6732749.html" target="_blank">https://www.cnblogs.com/slly/p/6732749.html</a></li>
+<li>3.移动端响应式布局:flex,字体的rem,媒体查询media queries </li>
+</ul>
+
+<blockquote>
+  <p>flex:伸缩盒模型  解决布局的问题 <br>
+      rem:是一个相对长度单位  参照基准为body的font-size  解决px大小变化的问题 <br>
+      相对于父级字体大小，前提父级不能设置字体大小em: <br>
+      media queries:媒体查询 .媒体查询Media Queries能在不同的条件下使用不同的样式，使页面在不同在终端设备下达到不同的渲染效果；</p>
+</blockquote>
+
+<ul><li>4 MVVM怎么实现双向绑定？  <br>
+<a href="http://blog.gejiawen.com/2015/04/02/2-way-data-binding-and-define-property/" target="_blank">http://blog.gejiawen.com/2015/04/02/2-way-data-binding-and-define-property/</a> </li>
+<li>5.对MVC和MVVM的理解？ <br>
+Model（模型）、View（视图）和Controller（控制）。 <br>
+MVC 是单向数据流  当模型数据发生改变时，通过控制器让视图发生改变 而MVVM是双向数据流 ，数据变化，视图变化，视图变化数据也会改变</li>
+<li>6.你怎么理解代码耦合度？模块化？怎么实现模块化？ </li>
+</ul>
+
+<blockquote>
+  <p>高内聚是指一个软件模块是由相关性很强的代码组成，只负责一项任务，也就是常说的单一责任原则。 <br>
+  低耦合，粗浅的理解是：一个完整的系统，模块与模块之间，尽可能的使其独立存在。也就是说，让每个模块，尽可能的独立完成某个特定的子功能。模块与模块之间的接口，尽量的少而简单。如果某两个模块间的关系比较复杂的话，最好首先考虑进一步的模块划分。这样有利于修改和组合。 <br>
+  模块就是实现特定功能的一组方法。 <br>
+  只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。 <a href="https://www.cnblogs.com/doublenet/p/4918306.html" target="_blank">https://www.cnblogs.com/doublenet/p/4918306.html</a></p>
+</blockquote>
+
+<ul><li>7.你用过哪些插件？ </li>
+<li>8.你用nodejs写过什么？ <br>
+用node和express框架构建web服务，自己实现前端所需接口的逻辑</li>
+<li>9.Cookie的四个属性：domain, path, expires和secure各是什么意义？ </li>
+</ul>
+
+<blockquote>
+  <p>指定 cookie 可以送达的主机名。假如没有指定，那么默认值为当前文档访问地址中的主机部分（但是不包含子域名）。 <br>
+  Path <br>
+  指定一个 URL 路径，这个路径必须出现在要请求的资源的路径中才可以发送 Cookie 首部。 <br>
+  Expires <br>
+  cookie 的最长有效时间，形式为符合 HTTP-date 规范的时间戳。 <br>
+  Secure  <br>
+  一个带有安全属性的 cookie 只有在请求使用SSL和HTTPS协议的时候才会被发送到服务器。 </p>
+</blockquote>
+
+<ul><li><p>10.简述ajax的原理？  <br>
+ajax在不刷新页面的情况下局部更新数据，通过new执行XMLHttpRequest类的来实现服务端与浏览器的数据交互，拿到数据后，动态将数据绑定的页面，最终浏览器渲染出来</p></li>
+<li><p>10.HTTP（TCP）传输流程（包括三次握手四次挥手及TCP底层协议） <br>
+<a href="https://github.com/jawil/blog/issues/14" target="_blank">https://github.com/jawil/blog/issues/14</a> <br>
+-11. 输入url，页面展示出来，用的什么协议? http协议属于应用层</p></li>
+<li>12.写一个原生的xhr请求过程,readystate的几种状态分别什么含义,以及怎么跨域？ </li>
+<li><ol>
+<li rel="13">jsonp是什么？ jsonp原理</li></ol></li>
+</ul>
+
+<pre class="prettyprint hljs-dark"><code class="hljs fortran"><div class="hljs-line"> 跨域通信的手段
+</div><div class="hljs-line"> 首先是利用script标签的src属性来实现跨域。
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">通过将前端方法作为参数传递到服务器端，然后由服务器端注入参数之后再返回，实现服务器端向客户端通信。
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">由于使用script标签的src属性，因此只支持get方法
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">JSONP原理
+</div><div class="hljs-line">首先在客户端注册一个callback，然后把callback的名字传给服务器。此时，服务器先生成json数据，然后以javascript语法的方式，生成<span class="hljs-function"><span class="hljs-keyword">function</span></span>，<span class="hljs-function"><span class="hljs-keyword">function</span></span>名字就是传递上来带参数jsonp。最后将json数据直接以入参的方式，放置<span class="hljs-function"><span class="hljs-keyword">function</span></span>中，这样就生成js语法的文档，返回给客户端。客户端浏览器，解析script变迁，并执行返回javascript文档，此时数据作为参数，传入了客户端预先定义好的callback函数里。简单的说，就是利用script标签没有跨域限制的“漏洞”来达到与第三方通讯的目的
+</div></code></pre>
+
+<ul><li>14.说说js里你理解的this，作用是什么，优缺点 </li>
+<li>15.都有哪些方式可以实现两个页面间的通信？ </li>
+<li>16.说说你知道的兼容性问题 （面试官会根据你说出来的东西进行具体的提问） <br>
+<code>重点讲JS盒子模型兼容和事件兼容</code></li>
+<li>17前端编程常规算法：去重、冒泡排序、插入排序、快速排序、递归等 <br>
+排序算法:</li>
+<li><ol>
+<li rel="1">数组去重</li></ol></li>
+</ul>
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment">// 思路</span>
+</div><div class="hljs-line"> 循环原数组获取数组中的每一项(<span class="hljs-keyword">for</span>,<span class="hljs-keyword">for</span> <span class="hljs-keyword">of</span>,forEach,map),将每一项往新数组中放(push) 但是 放之前需要判断一下(includes),只有新数组中没有这一项才放进去
+</div><div class="hljs-line"><span class="hljs-comment">//方法1</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> ary=[<span class="hljs-number">1</span>,<span class="hljs-number">22</span>,<span class="hljs-number">13</span>,<span class="hljs-number">14</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">12</span>,<span class="hljs-number">13</span>,<span class="hljs-number">14</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>];
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> arr=[];
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i&lt;ary.length;i++){
+</div><div class="hljs-line">      <span class="hljs-keyword">if</span> (!arr.includes(ary[i])){
+</div><div class="hljs-line">        arr.push(ary[i]);
+</div><div class="hljs-line">      }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(arr);
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">// 方法2</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> arr=[];
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> ary){
+</div><div class="hljs-line">      <span class="hljs-keyword">if</span>(!arr.includes(item)){
+</div><div class="hljs-line">        arr.push(item)
+</div><div class="hljs-line">      }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">//方法3</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> arr=[];
+</div><div class="hljs-line">    ary.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
+</div><div class="hljs-line">      <span class="hljs-keyword">if</span>(!arr.includes(item)){
+</div><div class="hljs-line">        arr.push(item)
+</div><div class="hljs-line">      }
+</div><div class="hljs-line">    });
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">//方法4</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> arr=ary.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item, index</span>) </span>{
+</div><div class="hljs-line">      <span class="hljs-comment">//判断在index之前的项组成的数组(ary.slice(0,index))中有没有item</span>
+</div><div class="hljs-line">      <span class="hljs-comment">//有 不留下,没有留下</span>
+</div><div class="hljs-line">      <span class="hljs-keyword">return</span> !ary.slice(<span class="hljs-number">0</span>,index).includes(item)
+</div><div class="hljs-line">    });
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(arr);
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">//方法5</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i&lt;ary.length;i++){
+</div><div class="hljs-line">      <span class="hljs-keyword">if</span>(i!=ary.lastIndexOf(ary[i])){
+</div><div class="hljs-line">        ary.splice(i,<span class="hljs-number">1</span>);
+</div><div class="hljs-line">        i--;
+</div><div class="hljs-line">      }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+<ul><li><ol>
+<li rel="2">冒泡排序</li></ol></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs lsl"><div class="hljs-line"><span class="hljs-comment">//冒泡排序思想：每一次对比相邻两个数据的大小，小的排在前面，如果前面的数据比后面的大就交换这两个数的位置</span>
+</div><div class="hljs-line"><span class="hljs-comment">//要实现上述规则需要用到两层for循环，外层从第一个数到倒数第二个数，内层从外层的后面一个数到最后一个数</span>
+</div><div class="hljs-line"><span class="hljs-comment">//</span>
+</div><div class="hljs-line">let ary = [<span class="hljs-number">1</span>, <span class="hljs-number">34</span>, <span class="hljs-number">16</span>, <span class="hljs-number">3</span>, <span class="hljs-number">18</span>, <span class="hljs-number">10</span>];
+</div><div class="hljs-line">  for (var i = <span class="hljs-number">1</span>; i &lt; ary.length; i++) {
+</div><div class="hljs-line">    for (var j = <span class="hljs-number">0</span>; j &lt; ary.length - i; j++) {
+</div><div class="hljs-line">      if (ary[j] &gt; ary[j + <span class="hljs-number">1</span>]) {
+</div><div class="hljs-line">        [ary[j], ary[j + <span class="hljs-number">1</span>]] = [ary[j + <span class="hljs-number">1</span>], ary[j]];
+</div><div class="hljs-line">      }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">  }
+</div></code></pre>
+
+<ul><li><ol>
+<li rel="3">插入排序</li></ol></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs lsl"><div class="hljs-line"><span class="hljs-comment">//思想:假定第一个就是最小值，然后取第二个值与第一个值比较,小的产排序后的序列，然后再取第三个值与排序后的序列进行比较插入到对应的位置，依次类推。</span>
+</div><div class="hljs-line">let ary=[<span class="hljs-number">3</span>,<span class="hljs-number">12</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">34</span>,<span class="hljs-number">1</span>,<span class="hljs-number">10</span>,<span class="hljs-number">16</span>,<span class="hljs-number">57</span>,<span class="hljs-number">32</span>];<span class="hljs-comment">//桌上的牌</span>
+</div><div class="hljs-line">    let ary1=[];<span class="hljs-comment">//手里的牌</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//先摸一张牌放在数组中</span>
+</div><div class="hljs-line">    ary1[<span class="hljs-number">0</span>]=ary[<span class="hljs-number">0</span>];<span class="hljs-comment">//手里的牌是 [3]</span>
+</div><div class="hljs-line">    for (var i=<span class="hljs-number">1</span>;i&lt;ary.length;i++){
+</div><div class="hljs-line">      <span class="hljs-comment">//摸到的牌是 ary[i]</span>
+</div><div class="hljs-line">      <span class="hljs-comment">//将摸到的牌ary[i] 去跟手里的牌比较 从后往前比较</span>
+</div><div class="hljs-line">      for(var j=ary1.length<span class="hljs-number">-1</span>;j&gt;=<span class="hljs-number">0</span>;j--){
+</div><div class="hljs-line">        <span class="hljs-comment">//一旦发现摸到的牌ary[i] 比手里某一张牌大了</span>
+</div><div class="hljs-line">        if(ary[i]&gt;ary1[j]){
+</div><div class="hljs-line">          <span class="hljs-comment">//将摸到的牌ary[i]插入到 ary1[j]的后面</span>
+</div><div class="hljs-line">          ary1.splice(j+<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,ary[i]);
+</div><div class="hljs-line">          <span class="hljs-comment">//一旦插入后面就不需要比较了</span>
+</div><div class="hljs-line">          break;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">        <span class="hljs-comment">//当手里的牌一直比较到索引为0的时候还没有发现比他小的</span>
+</div><div class="hljs-line">        if(j==<span class="hljs-number">0</span>){
+</div><div class="hljs-line">          <span class="hljs-comment">//将摸到的牌ary[i]放在数组ary1的最前面</span>
+</div><div class="hljs-line">          ary1.unshift(ary[i]);
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">      }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    console.log(ary1);
+</div></code></pre>
+
+<ol start="4"><li rel="4">快速排序</li>
+</ol>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs swift"><div class="hljs-line"><span class="hljs-comment">//思想：快速排序思想：先找到一个基准点（一般指数组的中部），然后数组被该基准点分为两部分，依次与该基准点数据比较，如果比它小，放左边；反之，放右边。左右分别用一个空数组去存储比较后的数据。最后递归执行上述操作，直到数组长度&lt;=1;</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> times=<span class="hljs-number">0</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> <span class="hljs-built_in">quickSort</span>=function(arr){ 
+</div><div class="hljs-line">    <span class="hljs-comment">//如果数组长度小于等于1无需判断直接返回即可</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span>(arr.length&lt;=<span class="hljs-number">1</span>){
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> arr;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> midIndex=<span class="hljs-type">Math</span>.floor(arr.length/<span class="hljs-number">2</span>);<span class="hljs-comment">//取基准点</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> midIndexVal=arr.splice(midIndex,<span class="hljs-number">1</span>);<span class="hljs-comment">//取基准点的值,splice(index,1)函数可以返回数组中被删除的那个数arr[index+1]</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> <span class="hljs-keyword">left</span>=[];<span class="hljs-comment">//存放比基准点小的数组</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> <span class="hljs-keyword">right</span>=[];<span class="hljs-comment">//存放比基准点大的数组</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//遍历数组，进行判断分配</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;arr.length;i++){
+</div><div class="hljs-line">        <span class="hljs-keyword">if</span>(arr[i]&lt;midIndexVal){
+</div><div class="hljs-line">            <span class="hljs-keyword">left</span>.push(arr[i]);<span class="hljs-comment">//比基准点小的放在左边数组</span>
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">        <span class="hljs-keyword">else</span>{
+</div><div class="hljs-line">            <span class="hljs-keyword">right</span>.push(arr[i]);<span class="hljs-comment">//比基准点大的放在右边数组</span>
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">        console.log(<span class="hljs-string">"第"</span>+(++times)+<span class="hljs-string">"次排序后："</span>+arr);
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-comment">//递归执行以上操作,对左右两个数组进行操作，直到数组长度为&lt;=1；</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-built_in">quickSort</span>(<span class="hljs-keyword">left</span>).concat(midIndexVal,<span class="hljs-built_in">quickSort</span>(<span class="hljs-keyword">right</span>));
+</div><div class="hljs-line">};
+</div><div class="hljs-line">console.log(<span class="hljs-built_in">quickSort</span>(arr));
+</div></code></pre>
+
+<ul><li>18.继承的几种方式：原型继承，构造函数继承 ，两者混合的方式；缺点：父类的构造函数执行两次，如何避免使用寄生组合式继承？</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line">用寄生组合式继承避免父类的构造函数执行两次
+</div><div class="hljs-line"> <span class="hljs-number">1</span>) 原型继承 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.welcome = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"欢迎你的到来"</span>);
+</div><div class="hljs-line">} };
+</div><div class="hljs-line">B.prototype = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>; <span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> B;
+</div><div class="hljs-line">b.pop();
+</div><div class="hljs-line"><span class="hljs-number">2</span>) call 继承 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.a = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"a"</span>)
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.x = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">       <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"x"</span>)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">};
+</div><div class="hljs-line">A.prototype.sum = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>);
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span>(<span class="hljs-params"></span>) </span>{ A.call(<span class="hljs-keyword">this</span>);
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.f = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">} }
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> B; b.a() <span class="hljs-comment">// 输出结果 a;</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">  <span class="hljs-number">3</span>) 寄生组合式继承 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Parent</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.x = <span class="hljs-number">100</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Parent.prototype.getX = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(++<span class="hljs-keyword">this</span>.x);
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.y = <span class="hljs-number">200</span>;
+</div><div class="hljs-line">Parent.call(<span class="hljs-keyword">this</span>); }
+</div><div class="hljs-line">Child.prototype = <span class="hljs-built_in">Object</span>.create(Parent.prototype);
+</div><div class="hljs-line"><span class="hljs-number">4</span>) es6 中 <span class="hljs-class"><span class="hljs-keyword">class</span>,<span class="hljs-title">extend</span> 继承 <span class="hljs-title">class</span> <span class="hljs-title">Fn</span></span>{
+</div><div class="hljs-line"><span class="hljs-keyword">constructor</span>(num){ <span class="hljs-keyword">this</span>.x = num;
+</div><div class="hljs-line">}; sum(){
+</div><div class="hljs-line">       <span class="hljs-built_in">console</span>.log(<span class="hljs-number">10</span>)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fn</span></span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">constructor</span>(a){
+</div><div class="hljs-line">       <span class="hljs-keyword">super</span>(a);
+</div><div class="hljs-line">       <span class="hljs-keyword">this</span>.b = <span class="hljs-number">100</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">};
+</div></code></pre>
+
+<ul><li>19.说说对函数的防抖和节流的实现 <br>
+<a href="https://justclear.github.io/throttle-and-debounce/" target="_blank">https://justclear.github.io/throttle-and-debounce/</a></li>
+<li>20.什么是柯理化函数、惰性函数？</li>
+</ul>
+
+<pre class="prettyprint hljs-dark"><code class="hljs gauss"><div class="hljs-line">柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">惰性函数 用来解决每次判断的问题
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">// 简化写法</span>
+</div><div class="hljs-line">function addEvent (<span class="hljs-built_in">type</span>, el, <span class="hljs-function"><span class="hljs-keyword">fn</span>) {
+</span></div><div class="hljs-line">    <span class="hljs-keyword">if</span> <span class="hljs-params">(<span class="hljs-built_in">window</span>.addEventListener)</span> {
+</div><div class="hljs-line">        el.addEventListener<span class="hljs-params">(<span class="hljs-built_in">type</span>, <span class="hljs-keyword">fn</span>, false)</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">window</span>.attachEvent){
+</div><div class="hljs-line">        el.attachEvent('on' + <span class="hljs-built_in">type</span>, <span class="hljs-function"><span class="hljs-keyword">fn</span>)</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">问题在于我们每当使用一次 addEvent 时都会进行一次判断。
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">利用惰性函数，我们可以这样做：
+</div><div class="hljs-line">function addEvent (<span class="hljs-built_in">type</span>, el, <span class="hljs-function"><span class="hljs-keyword">fn</span>) {
+</span></div><div class="hljs-line">    <span class="hljs-keyword">if</span> <span class="hljs-params">(<span class="hljs-built_in">window</span>.addEventListener)</span> {
+</div><div class="hljs-line">        <span class="hljs-title">addEvent</span> = function <span class="hljs-params">(<span class="hljs-built_in">type</span>, el, <span class="hljs-keyword">fn</span>)</span> {
+</div><div class="hljs-line">            el.addEventListener<span class="hljs-params">(<span class="hljs-built_in">type</span>, <span class="hljs-keyword">fn</span>, false)</span>;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">window</span>.attachEvent){
+</div><div class="hljs-line">        addEvent = function (<span class="hljs-built_in">type</span>, el, <span class="hljs-function"><span class="hljs-keyword">fn</span>) {
+</span></div><div class="hljs-line">            el.attachEvent<span class="hljs-params">('on' + <span class="hljs-built_in">type</span>, <span class="hljs-keyword">fn</span>)</span>;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">当我们每次都需要进行条件判断，其实只需要判断一次，接下来的使用方式都不会发生改变的时候，想想是否可以考虑使用惰性函数。
+</div></code></pre>
+
+<ul><li>21.说说设计模式发布-订阅的理解,发布订阅模式的简单实现 </li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs clean"><div class="hljs-line">原生JS  封装的on,fire,off实现过程说下
+</div><div class="hljs-line">jquery 订阅发布模式
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> $plan=$.callBacks() 事件池 放着列的计划
+</div><div class="hljs-line">订阅-做计划 on-&gt; 
+</div><div class="hljs-line">`$plan.add(callback);`
+</div><div class="hljs-line">发布-&gt;执行计划 fire-&gt;
+</div><div class="hljs-line">`$plan.fire()`
+</div><div class="hljs-line">取消订阅-&gt;取消做计划 off-&gt;
+</div><div class="hljs-line">`$plan.remove()`
+</div><div class="hljs-line">事件发生时做的事情就是计划
+</div></code></pre>
+
+<ul><li>22.hybrid中js怎么和native通信 jsBridge底层的SDK？ 说说hyBrid模式 <br>
+<a href="https://segmentfault.com/a/1190000015678155" target="_blank">https://segmentfault.com/a/1190000015678155</a></li>
+<li>23.你怎么使用webpack的，它做了些什么?</li>
+</ul>
+
+<blockquote>
+  <p>webpack是一款强大的模块加载器兼打包工具，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理, 再说下webpack配置，各种加载器的功能和使用的插件</p>
+</blockquote>
+
+<ul><li>24websocket和http协议之间的区别?</li>
+</ul>
+
+<blockquote>
+  <p>WebSocket他是为了解决客户端发起多个http请求到服务器资源浏览器必须要经过长时间的轮训问题而生的，他实现了多路复用，他是全双工通信。在webSocket协议下客服端和浏览器可以同时发送信息。建立了WenSocket之后服务器不必在浏览器发送request请求之后才能发送信息到浏览器。这时的服务器已有主动权想什么时候发就可以发送信息到服务器。而且信息当中不必在带有head的部分信息了与http的长链接通信来说，这种方式，不仅能降低服务器的压力。而且信息当中也减少了部分多余的信息。</p>
+</blockquote>
+
+<ul><li>25.进程和线程的区别.</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs lsl"><div class="hljs-line">(<span class="hljs-number">1</span>)线程是CPU独立运行和独立调度的基本单位；
+</div><div class="hljs-line">（<span class="hljs-number">2</span>）进程是资源分配的基本单位；
+</div><div class="hljs-line">两者的联系：进程和线程都是操作系统所运行的程序运行的基本单元。
+</div><div class="hljs-line">区别：
+</div><div class="hljs-line">（<span class="hljs-number">1</span>）进程具有独立的空间地址，一个进程崩溃后，在保护模式下不会对其它进程产生影响。
+</div><div class="hljs-line">（<span class="hljs-number">2</span>）线程只是一个进程的不同执行路径，线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉。
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+<ul><li>ajax,fetch,promise区别？</li>
+</ul>
+
+<blockquote>
+  <p><code>ajax</code>： 基于原生的XHR开发，有兼容性问题，功能需要自己封装处理 <br>
+  <code>fetch</code>： 是基于promise,提供了原生Api,   脱离了XHR,，但需要手动对状态码进行成功返回的判断 <br>
+  <code>axios</code> 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端 ,并进行了相应的封装，例如如下： <br>
+  从浏览器中创建 XMLHttpRequest <br>
+  从 node.js 发出 http 请求 <br>
+  支持 Promise API <br>
+  拦截请求和响应 <br>
+  转换请求和响应数据 <br>
+  取消请求 <br>
+  自动转换JSON数据 <br>
+  客户端支持防止CSRF/XSRF <br>
+  <code>promise</code> ：  是异步编程的一种解决方案，可以解决异步处理回调地狱问题。promise终于成了原生对象，它有三种状态，分别是 <br>
+  pending-进行中、resolved-已完成、rejected-已失败 <br>
+  then 是Promise类原型上的方法，由实例来调用，then第一个参数表示成功状态回调函数，第二个参数表示失败状态的回调函数 <br>
+  》Promise中return <br>
+  return后面不管是值类型还是引用类型，都会走到第二个then的成功回调里面 <br>
+  return后面是Promise实例，则有promise里面的回调函数决定，如果里面是成功的则走到第二个then里面的成功回调，若里面是失败的则走到第二个then里面的失败回调里面  <br>
+  then第二个参数（失败回调）可以不用写，直接通过catch方法来捕获异常，catch是promise类原型上的方法 <br>
+  promise里处理异步并发问题  Promise.all  多个异步操作都成功后再做其他的事情 <br>
+  Promise.race([p1,p2]) 多个异步操作时，捕获到成功状态就成功的，捕获到失败就是失败</p>
+</blockquote>
+
+<ul><li>32.AMD CMD，commonJS规范的区别？</li>
+</ul>
+
+<pre class="prettyprint hljs-dark"><code class="hljs dockerfile"><div class="hljs-line"><span class="hljs-number">1</span>.目前，模块化开发有：
+</div><div class="hljs-line"><span class="hljs-number">1</span>.服务器端规范：CommonJs---nodejs使用的规范，
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-number">2</span>.浏览器端规范：AMD---RequireJS国外相对流行
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">　　　　　　　　<span class="hljs-keyword">CMD</span><span class="bash">--SeaJS国内相对流行
+</span></div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-number">2</span>.SeaJS与RequireJS的对比：
+</div><div class="hljs-line">a. 对于依赖的模块，AMD是提前执行，<span class="hljs-keyword">CMD</span><span class="bash">是延后执行;
+</span></div><div class="hljs-line">
+</div><div class="hljs-line">b. <span class="hljs-keyword">CMD</span><span class="bash">推崇依赖就近，AMD推崇依赖前置;
+</span></div><div class="hljs-line">
+</div><div class="hljs-line">c. AMD的API默认是一个当多个用，<span class="hljs-keyword">CMD</span><span class="bash">的API严格区分，推崇职责单一。</span>
+</div></code></pre>
+
+<ul><li>33是否了解或者使用过开源的架构工具bower，npm，yeoman，gulp，webpack等，一个npm包里package.json具备的必要的字段都有哪些？</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs groovy"><div class="hljs-line">一个npm包里<span class="hljs-keyword">package</span>.json具备的必要的字段都有哪些:
+</div><div class="hljs-line">- <span class="hljs-string">name:</span> <span class="hljs-keyword">package</span>的名字
+</div><div class="hljs-line">- <span class="hljs-string">version:</span> <span class="hljs-keyword">package</span>的版本
+</div><div class="hljs-line">当<span class="hljs-keyword">package</span>发生变化时，version也应该跟着一起变化，
+</div><div class="hljs-line">- <span class="hljs-string">dependencies:</span> <span class="hljs-keyword">package</span>的生产依赖模块
+</div><div class="hljs-line">- devDependencies：<span class="hljs-keyword">package</span>的开发依赖模块
+</div><div class="hljs-line">即别人要在这个<span class="hljs-keyword">package</span>上进行开发，至少需要安装哪些包
+</div><div class="hljs-line"><wbr>
+</div></code></pre>
+
+<ul><li>34.常用版本管理工具？说一下git 和 svn的区别？</li>
+</ul>
+
+<blockquote>
+  <p>1.git是分布式的，svn是集中式的 <br>
+  2.git 不需联网，svn 需要联网操作,git下载下来后，在本地不必联网就可以看到所有的log，很方便学习;svn却需要联网，没有网络代码没办法提交.</p>
+</blockquote>
+
+<ul><li>35.常用css预处理工具是什么？ less ,sass</li>
+<li>37.GET 和 POST的区别?</li>
+</ul>
+
+<pre class="prettyprint hljs-dark"><code class="hljs haml"><div class="hljs-line">-<span class="ruby"> <span class="hljs-number">1</span>、发送数据的方式不一样
+</span></div><div class="hljs-line">-<span class="ruby"> get的方式是将数据放在url地址后面发送给服务器
+</span></div><div class="hljs-line">-<span class="ruby"> post的方式是将数据方法请求主体里面发送给服务器
+</span></div><div class="hljs-line">-<span class="ruby"> <span class="hljs-number">2</span>、传输数据的大小不一样
+</span></div><div class="hljs-line">-<span class="ruby"> get 各个浏览器的传输大小不一样，例如：chrome（<span class="hljs-number">8</span>kb）,firefox(<span class="hljs-number">7</span>kb), IE(<span class="hljs-number">2</span>kb)
+</span></div><div class="hljs-line">-<span class="ruby"> post 没有大小的限制
+</span></div><div class="hljs-line">-<span class="ruby"> <span class="hljs-number">3</span>、安全性能来说
+</span></div><div class="hljs-line">-<span class="ruby"> get的安全性没有post的安全
+</span></div><div class="hljs-line">-<span class="ruby"> <span class="hljs-number">4</span>、get有缓存，post没缓存</span>
+</div></code></pre>
+
+<ul><li>38Express常用中间件和路由API</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs maxima"><div class="hljs-line">应用级中间件   
+</div><div class="hljs-line">路由级中间件
+</div><div class="hljs-line">错误处理中间件
+</div><div class="hljs-line">内置中间件
+</div><div class="hljs-line">第三方中间件
+</div><div class="hljs-line"><span class="hljs-built_in">express</span>提供res和req api常用的得知道
+</div></code></pre>
+
+<ul><li>39.什么是Restful风格接口？</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs dts"><div class="hljs-line">RESTful是一种架构的规范与约束、原则，符合这种规范的架构就是RESTful架构。
+</div><div class="hljs-line"><span class="hljs-number">1.</span>通过URL来表示资源
+</div><div class="hljs-line">资源分为主资源与子资源
+</div><div class="hljs-line">因为主资源是一类独立的资源 所以主资源应直接放在相对路径下：例如
+</div><div class="hljs-line">若要表示主资源的实例：如果实例的ID=<span class="hljs-number">1</span>，则这样表示： <span class="hljs-meta-keyword">/goods/</span><span class="hljs-number">1</span>
+</div><div class="hljs-line">子资源：
+</div><div class="hljs-line">一个实例的子资源可能是一个集合也可能是一个单一的子资源
+</div><div class="hljs-line">子资源为图片集合：<span class="hljs-meta-keyword">/goods/</span><span class="hljs-number">1</span>/pictures
+</div><div class="hljs-line">子资源为商品折扣的单子子资源：<span class="hljs-meta-keyword">/goods/</span><span class="hljs-number">1</span>/discount
+</div><div class="hljs-line"><span class="hljs-number">2.</span>单数 vs. 复数
+</div><div class="hljs-line">获取用户<span class="hljs-number">1</span>的信息，哪种方式更符合RESTful?
+</div><div class="hljs-line"><span class="hljs-meta-keyword">/api/</span>users/<span class="hljs-number">1</span>
+</div><div class="hljs-line"><span class="hljs-meta-keyword">/api/</span>user/<span class="hljs-number">1</span>
+</div><div class="hljs-line"><span class="hljs-number">3.</span>相对路径 vs. 请求参数
+</div><div class="hljs-line">极光的RESTful API:
+</div><div class="hljs-line">获取用户信息 GET <span class="hljs-meta-keyword">/v1/</span>users<span class="hljs-class">/{username} 参数放在路径中
+</span></div><div class="hljs-line">VS
+</div><div class="hljs-line">获取用户信息 GET <span class="hljs-meta-keyword">/v1/</span>users?username=xxxxx 拼接的方式
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">获取应用管理员列表 GET <span class="hljs-meta-keyword">/v1/</span>admins?start={start}<span class="hljs-variable">&amp;count</span>={count} ？后拼接参数的方式：这种方式一般作为过滤资源
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-number">4.</span>使用合适的动词 get delete put post
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">选择请求接口的方式： get delete
+</div><div class="hljs-line">PUT 在服务器更新资源（客户端提供改变后的完整资源）。
+</div><div class="hljs-line">POST 在服务器新建一个资源
+</div></code></pre>
+
+<ul><li>41.在开发过程中你是使用的开发服务器吗?什么是热替换？ <br>
+<a href="https://webpack.docschina.org/guides/hot-module-replacement/" target="_blank">https://webpack.docschina.org/guides/hot-module-replacement/</a></li>
+<li>42.Cookie的作用？服务器和浏览器之间的cookie是怎样传送的</li>
+</ul>
+
+<h3 id="优化相关">优化相关</h3>
+
+<ul><li>1.你知道有哪些方法可以提高网站的性能？</li>
+<li>2.说说有关加载的优化？ </li>
+<li>3.项目中图片处理相关的优化？ </li>
+<li>4.项目中用到的优化方式？ </li>
+<li>5.雅虎优化你能说出几条？</li>
+</ul></div></body></html>
